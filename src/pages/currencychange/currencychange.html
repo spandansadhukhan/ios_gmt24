@@ -1,0 +1,66 @@
+<!--
+  Generated template for the CurrencychangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Currency Change</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+<ion-content padding *ngIf="selectedlanguage == 1">
+  <div class="logo">
+    <img src="assets/img/appicon.png" alt="Ionic logo">
+    <h3>{{this.Currency}}</h3>
+  </div>
+  <form>
+    <ion-list class="mb-0">
+      <ion-item class="input-field">
+        <ion-label stacked color="primary">{{this.Select_Currency}}</ion-label>
+        <ion-select (ionChange)="currencychange($event)">
+          <ion-option value="" selected>{{this.please_Choose_currency}}</ion-option>
+          <ion-option value="{{b.code}}"  *ngFor="let b of currencylist">{{b.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col col-12 class="p-0 m-t-10">
+            <button ion-button round block class="grey-btn" (click)="changecurrency()" type="submit">{{this.Go}}</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </form>
+</ion-content>
+<ion-content padding *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  <div class="logo">
+    <img src="assets/img/appicon.png" alt="Ionic logo">
+    <h3>{{this.Currency}}</h3>
+  </div>
+  <form>
+    <ion-list class="mb-0">
+      <ion-item class="input-field">
+        <ion-label stacked color="primary">{{this.Select_Currency}}</ion-label>
+        <ion-select (ionChange)="currencychange($event)">
+          <ion-option value="" selected>{{this.please_Choose_currency}}</ion-option>
+          <ion-option value="{{b.code}}"  *ngFor="let b of currencylist">{{b.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col col-12 class="p-0 m-t-10">
+            <button ion-button round block class="grey-btn" (click)="changecurrency()" type="submit">{{this.Go}}</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </form>
+</ion-content>

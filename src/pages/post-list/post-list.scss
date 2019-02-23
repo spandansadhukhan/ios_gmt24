@@ -1,0 +1,23 @@
+page-post-list {
+    ion-navbar ion-icon {
+        color: #fff;
+        position: absolute;
+        top: 30%;
+        font-size: 20px;
+        font-weight: 600;
+        left: 15px;
+    }
+        .content { background: #e5e5e5 !important;}
+        .scroll-content{padding: 10px !important}
+        .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px}
+        .item.request-item h2{font-size: 1.5rem; color:#222;}
+        .item.request-item .price{font-size: 1.5rem; color:#000}
+        .item.request-item .price span{color:#888; font-weight: 600}
+        .item.request-item .name{font-size: 1.2rem; color:#000}
+        .item.request-item .name span{color:#888;}
+        .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+        .item.request-item ion-thumbnail{min-width: 60px}
+        .item.request-item ion-thumbnail img{height:auto; width:60px;}
+        .item.request-item .button{height:32px; padding-left: 1.5em; padding-right: 1.4em}
+        .item.request-item .item-inner{border-bottom:0}
+    }

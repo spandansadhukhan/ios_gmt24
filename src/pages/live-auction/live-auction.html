@@ -1,0 +1,86 @@
+<!--
+  Generated template for the LiveAuctionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+ 
+    <ion-title>{{this.Live_Auction}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card>
+			<form  [formGroup]="bidForm" novalidate>
+		<ion-row>
+			<ion-col class="top">
+				<div class="users"><img src="assets/img/users-icon.png" alt="" /> {{countuniquebids}}</div>				
+				
+			</ion-col>	
+			<ion-col>
+				<div class="text-center"><span>{{displayTime}}</span></div>
+			</ion-col>	
+			<ion-col>
+				<div *ngIf="lastbidvalue >= thresholdprice" class="online"></div>
+				<div *ngIf="lastbidvalue < thresholdprice" class="offline"></div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="product desc">
+				<img src="{{product_single_image}}" alt="" />
+
+				<h2>{{brands}}/{{category}}<span>({{gender}})</span></h2>
+					<h4>{{this.Highest_Bid}}: <span>{{currency_code}} {{higestbidderbid}}</span></h4>
+					<h4>{{this.Next_Minimum_Bid}} <span>{{currency_code}} {{nextbidprice}}</span></h4>
+					
+	
+					<ion-input class="wh" type="number" formControlName="bid" placeholder="Input your bid" (keyup)="checkinputbid(bidForm.value,nextbidprice,bidincrement,baseauctionprice)"></ion-input>
+					
+					<p *ngIf="!bidmatch" ion-text color="danger" padding-left>{{this.Bid_increment_multiple_of}} {{bidincrement}}. </p>
+					
+					<button ion-button full class="grey-btn" [disabled]="!bidmatch" type="submit" (click)="bidsubmit(bidForm.value)">{{this.Place_bid}}</button>
+			
+			
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-12 class="product">
+
+				<h4>{{this.Tota_No_Of_Bid}} : <span>{{bidcount}}</span></h4>
+				<h4>{{this.Highest_Bidder_Name}} :<span>{{maxbiddername}}({{higestbidderbid}})</span></h4>
+				<h4>{{this.your_higest_bid}}: <span>{{currency_code}} {{usermaxbid}}</span></h4>
+
+				<h2><a  (click)="toggle()">{{this.Bid_History}}</a></h2>
+				<div *ngIf="show">
+				<h4 *ngFor="let bh of bidhistory" > {{bh.name}} ({{bh.bidprice}}) </h4>
+				</div>
+			</ion-col>	
+		</ion-row>
+
+
+		<!-- <ion-row>
+			<ion-col class="desc">
+				<h3>{{brands}}/{{category}}
+					<span>({{gender}})</span>
+				</h3>
+				<h4>Highest Bid: <span>{{currency_code}} {{higestbidderbid}}</span></h4>
+				<h4>Next Minimum Bid: <span>{{currency_code}} {{nextbidprice}}</span></h4>
+				
+
+				<ion-input class="wh" type="number" formControlName="bid" placeholder="Input your bid" (keyup)="checkinputbid(bidForm.value,nextbidprice,bidincrement,baseauctionprice)"></ion-input>
+				
+				<p *ngIf="!bidmatch" ion-text color="danger" padding-left>Bid increment multiple of {{bidincrement}}. </p>
+				
+
+				<button ion-button full class="gr" [disabled]="!bidmatch" type="submit" (click)="bidsubmit(bidForm.value)">Place bid</button>
+			</ion-col>
+		</ion-row> -->
+	</form>
+	</ion-card>
+
+</ion-content>

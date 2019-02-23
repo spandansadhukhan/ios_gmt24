@@ -1,0 +1,32 @@
+page-my-interest {
+
+    .content { background: #1b1b1b !important;}
+    .scroll-content{padding: 10px !important}
+    .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px; background: #000000; border:2px solid #2e2e2e}
+    .item.request-item h2{font-size: 1.5rem; color:#fff;}
+    .item.request-item .price{
+        font-size: 13px;
+        color: #d7d5d5;
+    }
+    .item.request-item .price span{color:#888; font-weight: 600}
+    .item.request-item .name{font-size: 1.2rem; color:#fff}
+    .item.request-item .name span{color:#888;}
+    .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+    .item.request-item ion-thumbnail{min-width: 60px}
+    .item.request-item ion-thumbnail img{
+        height: 70px;
+        width: 75px;
+        object-fit: cover;
+        border: 3px solid #7e7e7e;
+    }
+    .item.request-item .button{height:32px; padding-left: 1.5em; padding-right: 1.4em}
+    .item.request-item .item-inner{border-bottom:0}
+    .rtl-arabic{
+        .item{
+            text-align: right;
+            flex-direction: row-reverse;
+        }
+    }
+
+
+    }

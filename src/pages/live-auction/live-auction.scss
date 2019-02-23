@@ -1,0 +1,132 @@
+page-live-auction {
+	ion-navbar ion-icon {
+        color: #fff;
+        position: absolute;
+        top: 30%;
+        font-size: 20px;
+        font-weight: 600;
+        left: 15px;
+        }
+        .content { background: #0e0d0d !important;}
+        .card{padding:20px !important; margin:0; width:100% !important; background:#1e1e1e; color:#fff;}
+        .card .top{
+        width:100%;
+        padding: 0;
+        margin-bottom: 10px;
+        
+    }
+    .card .top .users{
+        width: auto;
+        display: inline-block;
+        float: left;
+        margin: 0 10px 0 0;
+    }
+    .card .top .users img{float:left; width:20px; height:auto; margin-right:10px;}
+    .card .online{
+        width: 20px;
+        height: 20px;
+        float: right;
+        border-radius: 100%;
+        background: #429809;
+    }
+    .card .offline{
+        width: 20px;
+        height: 20px;
+        float: right;
+        border-radius: 100%;
+        background: red;
+    }
+
+    .card .product{ width:100%; height:auto; text-align:center; border-bottom:solid 1px #363636; padding-bottom:15px; margin-bottom:10px;}
+    .card .product img{
+        text-align: center;
+        width: 100%;
+        //height: 155px;
+        object-fit: cover;
+    }
+    .card .product h2{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+        line-height: 22px;
+        padding: 0;
+        margin: 7px 0 6px;
+    }
+
+.card .product h2 a{background: rgba(116, 116, 116, 1);
+
+background: -moz-linear-gradient(top, rgba(116, 116, 116, 1) 0%, rgba(62, 62, 62, 1) 100%);
+
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(116, 116, 116, 1)), color-stop(100%, rgba(62, 62, 62, 1)));
+
+background: -webkit-linear-gradient(top, rgba(116, 116, 116, 1) 0%, rgba(62, 62, 62, 1) 100%);
+
+background: -o-linear-gradient(top, rgba(116, 116, 116, 1) 0%, rgba(62, 62, 62, 1) 100%);
+
+background: -ms-linear-gradient(top, rgba(116, 116, 116, 1) 0%, rgba(62, 62, 62, 1) 100%);
+
+background: linear-gradient(to bottom, rgba(116, 116, 116, 1) 0%, rgba(62, 62, 62, 1) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747474', endColorstr='#3e3e3e', GradientType=0);
+display:block;
+font-size:14px;
+color:#fff;
+text-decoration: none;
+padding:10px 0;
+border-radius: 30px !important;
+}
+    .card .product h2 span{font-weight:500;}
+    .card .desc{width:100%; height:auto;}
+    .card .desc h3{color:#fff; font-size:18px; font-weight:500; text-align:center; line-height:30px; padding:0; margin:0 0 15px;}
+    .card .desc h3 span{display:block; color:#999999; font-size:16px;}
+    .card .desc h4{
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 18px;
+        padding: 0;
+        margin: 0 0 8px;
+    }
+    .card .desc h4 span{color:#999999;}
+    .card .desc p{color:#999999; text-align:center;}
+    .card .desc button{ border-radius: 50px; margin-top:12px;}
+}
+.card .desc .wh{ 
+    border:solid 1px #f5f5f5 !important; 
+    color:#fff !important; 
+    font-size:18px !important; 
+    height:32px !important;
+    background: none !important;
+}
+ion-input :focus{background: none;}
+.card .desc .wh:hover{background: none !important;}
+.card .desc .gr{ background:#545454 !important; color:#fff !important; font-size:20px !important; height:50px !important;}
+.card .desc .gr:hover{background:#79746d !important;}
+.card-md h4{color:#fff; margin-top:12px;}
+.input{
+	border-radius:30px !important;
+	
+	
+}
+.text-input, .text-input-ios{
+	font-size:14px;
+	padding:2px 10px;
+}
+
+.grey-btn{
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    padding: 24px 0;
+    border-radius: 30px !important;
+    background: linear-gradient(to bottom, #747474 0%, #3e3e3e 100%);
+}
+.text-input-md{
+    margin: 2px 8px;
+}
+.text-input-ios {
+    margin: 3px 8px 11px 0;
+}

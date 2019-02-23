@@ -1,0 +1,95 @@
+page-customer-interest {
+
+    .content { background: #1b1b1b !important;}
+    .scroll-content{padding: 10px !important}
+    .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px;background: #000000; border:2px solid #2e2e2e}
+    .item.request-item h2{font-size: 1.5rem; color:#fff; margin-left: 0.8rem;}
+    .item.request-item .price{font-size: 1.5rem; color:#fff; margin-left: 0.8rem;}
+    .item.request-item .price span{color:#999; font-weight: 600}
+    .item.request-item .name{font-size: 1.2rem; color:#fff}
+    .item.request-item .name span{color:#888;}
+    .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+    .item.request-item ion-thumbnail{min-width: 60px}
+    .item.request-item ion-thumbnail img{height:66px; width:60px;object-fit: cover;}
+    .item.request-item .button{height:28px; padding-left: 1.5em; padding-right: 1.4em}
+    .item.request-item .item-inner{border-bottom:0}
+    .small-img{
+        border-radius: 50%;
+        object-fit: cover;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #9d9d9d;
+    }
+    .card{
+        //background: #000;
+        //padding: 7px;
+        //color: #fff;
+        //border: 1px solid #323232;
+        background: #000 url(../assets/img/left-panel-bg.jpg) no-repeat 23% 83%;
+        padding: 18px 10px;
+        color: #fff;
+        border: 1px solid #323232;
+        text-align: center;                                         
+    }
+    .ok-btn{
+        display: inline-block;
+        width: 50%;
+        padding: 16px;
+        margin: 0;
+    }
+    
+    .card h3{
+        color: #fff;
+    }
+    .card p{
+        color: #a5a5a5;
+        font-size: 12px;
+    }
+    .item{
+        background: #000;
+        color: #fff;
+    }
+    .big-img{
+        height: 75px;
+        object-fit: cover;
+        width: 80px;
+        margin-bottom: 7px;
+    }
+    .button-md{
+        height: 20px;
+    }
+    .card-content{
+        padding: 7px 10px;
+    }
+    .button-inner{
+        font-size: 12px;
+    }
+    .button-small-md{
+        padding: 0 5px;
+    }
+    .card .note h4{
+        margin-top: 5px;
+    }
+    .position{
+        margin-bottom: 10px;
+        border-bottom: 1px solid #3c3b3b;
+    }
+
+    .rating-part{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 9999999999;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    }
+    .rtl-arabic{
+        .item{
+            text-align: right;
+        }
+    }
+}

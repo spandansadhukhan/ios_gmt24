@@ -1,0 +1,264 @@
+<!--
+  Generated template for the FilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{this.filter}}</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button>Clear</button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="selectedlanguage == 1" >
+  
+  <div class="check-custom">
+    <h6 (click)="categoryshow=!categoryshow">{{this.brands}}</h6>
+    <ion-list *ngIf="categoryshow" class="accordion-list">
+        <ion-item class="check-item" *ngFor="let b of brandlists;let i = index" >
+            <ion-label>{{b.name}}</ion-label>
+            <ion-checkbox color="dark"  [checked]="this.answers.indexOf(b.id)>=0"  (ionChange)="onChange(b.id, $event.checked, i)"></ion-checkbox>
+      </ion-item>
+      
+      <!-- <ion-item class="check-item">
+        <ion-label>Poor</ion-label>
+        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+      </ion-item> -->
+    </ion-list>
+</div>
+
+<div class="check-custom">
+  <h6 (click)="categoryshow1=!categoryshow1">{{this.category}}</h6>
+  <ion-list *ngIf="categoryshow1" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let sc of subcategorylist">
+          <ion-label>{{sc.name}}</ion-label>
+          <ion-checkbox color="dark" [checked]="this.answers1.indexOf(sc.id)>=0" (ionChange)="onCatisset(sc.id, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+
+
+
+<ion-item class="item-custom">
+  <ion-label>{{this.location1}}</ion-label>
+  <ion-select [(ngModel)]="location" (ionChange)="liststate($event)">
+    <ion-option value="{{c.id}}" *ngFor="let c of countrylists">{{c.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item class="item-custom">
+  <ion-label>{{this.state}}</ion-label>
+  <ion-select (ionChange)="onstateset($event)">
+    <ion-option value="{{s.id}}" *ngFor="let s of statelists">{{s.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+<ion-item class="item-custom">
+  <ion-label>{{this.gender}}</ion-label>
+  <ion-select (ionChange)="ongenderset($event)">
+    <ion-option value="Male">{{this.male}}</ion-option>
+    <ion-option value="Female">{{this.female}}</ion-option>
+    <ion-option value="Unisex">{{this.unisex}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+    <ion-label>{{this.price}}</ion-label>
+  <ion-range  dualKnobs="true" pin="true" min="{{minprice}}" max="{{maxprice}}" step="3" [(ngModel)]="minValue" (ionChange)="priceslider($event)">
+    <ion-icon range-left>Min <span>{{minprice}}</span></ion-icon>
+    <ion-icon range-right>Max <span>{{maxprice}}</span></ion-icon>	
+  </ion-range>
+</ion-item>
+  
+<ion-item class="item-custom">
+  <ion-label>{{this.Bracelet_Type}}</ion-label>
+  <ion-select (ionChange)="onbraceletset($event)">
+    <ion-option value="{{b.id}}" *ngFor="let b of braceletlists">{{b.type}}</ion-option>
+  </ion-select>
+</ion-item>
+   
+<ion-item class="item-custom">
+  <ion-label>{{this.Model_Year}}</ion-label>
+  <ion-select (ionChange)="onyearset($event)">
+    <ion-option value="{{year}}" *ngFor="let year of years">{{year}}</ion-option>
+  </ion-select>
+</ion-item>    
+ 
+
+<div class="check-custom">
+  <h6 (click)="movementshow=!movementshow">{{this.movement}}</h6>
+  <ion-list *ngIf="movementshow" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let m of movementlists">
+          <ion-label>{{m.name}}</ion-label>
+          <ion-checkbox color="dark" checked="false" [checked]="this.answers2.indexOf(m.name)>=0" (ionChange)="onmovementset(m.name, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+  
+
+<ion-item>
+  <ion-label>{{this.size}}</ion-label>
+<ion-range  dualKnobs="true" pin="true" step="3" [(ngModel)]="minSize" (ionChange)="onsizeslider($event)">
+  <ion-icon range-left>Min <span>0</span></ion-icon>
+  <ion-icon range-right>Max <span>100</span></ion-icon>	
+</ion-range>
+</ion-item>
+
+
+<div class="check-custom">
+  <h6 (click)="sellershow=!sellershow">{{this.seller}}</h6>
+  <ion-list *ngIf="sellershow" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let sw of shopOwners">
+          <ion-label>{{sw.name}}</ion-label>
+          <ion-checkbox color="dark" checked="false" [checked]="this.answers3.indexOf(sw.id)>=0" (ionChange)="onsellerset(sw.id, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+
+
+
+<div class="check-custom" >
+  <h6 (click)="status_menu=!status_menu">{{this.Status_of_watch}}</h6>
+  <ion-list *ngIf="status_menu" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let st of statuslists">
+          <ion-label>{{st.name}}</ion-label>
+          <ion-checkbox color="dark" [checked]="this.answers4.indexOf(st.name)>=0" (ionChange)="onstatusset(st.name, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  
+</div>           
+
+<button ion-button round class="dark-grey-btn" (click)="onSave()">{{search}}</button>
+       
+</ion-content>
+
+<ion-content padding *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  
+  <div class="check-custom">
+    <h6 (click)="categoryshow=!categoryshow">{{this.brands}}</h6>
+    <ion-list *ngIf="categoryshow" class="accordion-list">
+        <ion-item class="check-item" *ngFor="let b of brandlists;let i = index" >
+            <ion-label>{{b.name}}</ion-label>
+            <ion-checkbox color="dark"  [checked]="this.answers.indexOf(b.id)>=0"  (ionChange)="onChange(b.id, $event.checked, i)"></ion-checkbox>
+      </ion-item>
+      
+      <!-- <ion-item class="check-item">
+        <ion-label>Poor</ion-label>
+        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+      </ion-item> -->
+    </ion-list>
+</div>
+
+<div class="check-custom">
+  <h6 (click)="categoryshow1=!categoryshow1">{{this.category}}</h6>
+  <ion-list *ngIf="categoryshow1" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let sc of subcategorylist">
+          <ion-label>{{sc.name}}</ion-label>
+          <ion-checkbox color="dark" [checked]="this.answers1.indexOf(sc.id)>=0" (ionChange)="onCatisset(sc.id, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+
+
+
+<ion-item class="item-custom">
+  <ion-label>{{this.location1}}</ion-label>
+  <ion-select [(ngModel)]="location" (ionChange)="liststate($event)">
+    <ion-option value="{{c.id}}" *ngFor="let c of countrylists">{{c.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item class="item-custom">
+  <ion-label>{{this.state}}</ion-label>
+  <ion-select (ionChange)="onstateset($event)">
+    <ion-option value="{{s.id}}" *ngFor="let s of statelists">{{s.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+<ion-item class="item-custom">
+  <ion-label>{{this.gender}}</ion-label>
+  <ion-select (ionChange)="ongenderset($event)">
+    <ion-option value="Male">{{this.male}}</ion-option>
+    <ion-option value="Female">{{this.female}}</ion-option>
+    <ion-option value="Unisex">{{this.unisex}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+    <ion-label>{{this.price}}</ion-label>
+  <ion-range  dualKnobs="true" pin="true" min="{{minprice}}" max="{{maxprice}}" step="3" [(ngModel)]="minValue" (ionChange)="priceslider($event)">
+    <ion-icon range-left>Min <span>{{minprice}}</span></ion-icon>
+    <ion-icon range-right>Max <span>{{maxprice}}</span></ion-icon>	
+  </ion-range>
+</ion-item>
+  
+<ion-item class="item-custom">
+  <ion-label>{{this.Bracelet_Type}}</ion-label>
+  <ion-select (ionChange)="onbraceletset($event)">
+    <ion-option value="{{b.id}}" *ngFor="let b of braceletlists">{{b.type}}</ion-option>
+  </ion-select>
+</ion-item>
+   
+<ion-item class="item-custom">
+  <ion-label>{{this.Model_Year}}</ion-label>
+  <ion-select (ionChange)="onyearset($event)">
+    <ion-option value="{{year}}" *ngFor="let year of years">{{year}}</ion-option>
+  </ion-select>
+</ion-item>    
+ 
+
+<div class="check-custom">
+  <h6 (click)="movementshow=!movementshow">{{this.movement}}</h6>
+  <ion-list *ngIf="movementshow" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let m of movementlists">
+          <ion-label>{{m.name}}</ion-label>
+          <ion-checkbox color="dark" checked="false" [checked]="this.answers2.indexOf(m.name)>=0" (ionChange)="onmovementset(m.name, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+  
+
+<ion-item>
+  <ion-label>{{this.size}}</ion-label>
+<ion-range  dualKnobs="true" pin="true" step="3" [(ngModel)]="minSize" (ionChange)="onsizeslider($event)">
+  <ion-icon range-left>Min <span>0</span></ion-icon>
+  <ion-icon range-right>Max <span>100</span></ion-icon>	
+</ion-range>
+</ion-item>
+
+
+<div class="check-custom">
+  <h6 (click)="sellershow=!sellershow">{{this.seller}}</h6>
+  <ion-list *ngIf="sellershow" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let sw of shopOwners">
+          <ion-label>{{sw.name}}</ion-label>
+          <ion-checkbox color="dark" checked="false" [checked]="this.answers3.indexOf(sw.id)>=0" (ionChange)="onsellerset(sw.id, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>
+
+
+
+<div class="check-custom" >
+  <h6 (click)="status_menu=!status_menu">{{this.Status_of_watch}}</h6>
+  <ion-list *ngIf="status_menu" class="accordion-list">
+      <ion-item class="check-item" *ngFor="let st of statuslists">
+          <ion-label>{{st.name}}</ion-label>
+          <ion-checkbox color="dark" [checked]="this.answers4.indexOf(st.name)>=0" (ionChange)="onstatusset(st.name, $event.checked, i)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  
+</div>           
+
+<button ion-button round class="dark-grey-btn" (click)="onSave()">{{search}}</button>
+         
+          
+</ion-content>

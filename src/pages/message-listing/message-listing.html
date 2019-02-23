@@ -1,0 +1,158 @@
+<!--
+  Generated template for the MessageListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>{{this.Message_listing}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+
+<ion-content padding *ngIf="selectedlanguage == 1">
+
+  <button block ion-button color="dark" round outline (click)='adminmessages()' >Click Here For Admin Messages</button>
+    <!-- <ion-item class="request-item" *ngFor="let item of messageList">
+      <ion-thumbnail item-start>
+        <img src="{{item.image}}">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+     
+      <p>{{item.date_diff}} ago</p>
+      <ion-icon name="chatbubbles" (click)="messageDetails(item.to_id,item.from_id,item.product_id)"></ion-icon>
+    </ion-item>
+
+
+    <ion-item class="request-item" *ngIf="messageList==''">
+        
+      Sorry! No message found.
+      </ion-item> -->
+
+
+
+    <!-- <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item> 
+    </ion-list>-->
+
+
+
+    <ion-list>
+        <ion-item *ngFor="let item of messageList">
+          <ion-avatar item-start>
+            <img src="{{item.image}}" class="image-m">
+          </ion-avatar>
+          <div class="row">
+              <h2 style="font-weight: 700;">{{item.username}}</h2>
+              <ion-icon name="chatbubbles" (click)="messageDetails(item.to_id,item.from_id,item.product_id)"></ion-icon> 
+          </div>
+          <h3>{{item.date_diff}} {{this.Days_ago}}</h3>
+        </ion-item>
+
+        <ion-item class="request-item" *ngIf="messageList==''">
+        
+          {{this.no_records_found}}
+          </ion-item>
+    </ion-list>
+
+</ion-content>
+<ion-content padding *ngIf="selectedlanguage == 2" class="rtl-arabic">
+
+    <!-- <ion-item class="request-item" *ngFor="let item of messageList">
+      <ion-thumbnail item-start>
+        <img src="{{item.image}}">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+     
+      <p>{{item.date_diff}} ago</p>
+      <ion-icon name="chatbubbles" (click)="messageDetails(item.to_id,item.from_id,item.product_id)"></ion-icon>
+    </ion-item>
+
+
+    <ion-item class="request-item" *ngIf="messageList==''">
+        
+      Sorry! No message found.
+      </ion-item> -->
+
+
+
+    <!-- <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item>
+    <ion-item class="request-item">
+      <ion-thumbnail item-start>
+        <img src="assets/img/Arijit-Singh.jpg">
+      </ion-thumbnail>
+      <h2>User Name</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </ion-item> 
+    </ion-list>-->
+
+
+
+    <ion-list>
+        <ion-item *ngFor="let item of messageList">
+          <ion-avatar item-start>
+            <img src="{{item.image}}" class="image-m">
+          </ion-avatar>
+          <div class="row">
+              <h2 style="font-weight: 700;">{{item.username}}</h2>
+              <ion-icon name="chatbubbles" (click)="messageDetails(item.to_id,item.from_id,item.product_id)"></ion-icon> 
+          </div>
+          <h3>{{item.date_diff}} {{this.Days_ago}}</h3>
+        </ion-item>
+
+        <ion-item class="request-item" *ngIf="messageList==''">
+        
+          {{this.no_records_found}}
+          </ion-item>
+    </ion-list>
+
+</ion-content>

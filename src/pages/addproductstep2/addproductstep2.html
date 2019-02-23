@@ -1,0 +1,277 @@
+<!--
+  Generated template for the AddproductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{this.add_product}}/{{this.auction}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<div class="custom-dropdown" *ngIf ="isShow">
+  <ion-list radio-group>
+  <ion-list-header>{{this.Status}}</ion-list-header>
+                
+  <ion-list class="list-area-radio">
+  <ion-item *ngFor="let st of statuslists">
+  <ion-label><img src="assets/img/{{st.images}}" alt="">{{st.name}}</ion-label>
+  <ion-radio value="{{st.name}}" (ionSelect)="selectstatus(st.name,st.images)"></ion-radio>
+  </ion-item>
+                     
+  </ion-list>
+  <ion-row>
+      <ion-col>
+          <button block ion-button color="dark" round outline (click)='hide()'>{{this.Cancel}}</button>
+      </ion-col>
+  </ion-row>
+  </ion-list>
+  </div>
+
+<ion-content *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+        
+        <ion-item>
+            <ion-label stacked color="primary">{{this.movement}}*</ion-label>
+            <ion-select name="movement" formControlName="movement">
+                <ion-option value="{{ml.name}}" *ngFor="let ml of movementlist">{{ml.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['movement'].valid && pForm.controls['movement'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.gender}}*</ion-label>
+            <ion-select name="gender" formControlName="gender">
+              <ion-option value="Male">{{this.male}}</ion-option>
+              <ion-option value="Female">{{this.female}}</ion-option>
+              <ion-option value="Unisex">{{this.unisex}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['gender'].valid && pForm.controls['gender'].touched" ion-text color="danger" padding-left>
+          {{this.please_choose_your_gender}} </p>
+        
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.reference_code}}*</ion-label>
+            <ion-input round type="text" placeholder="{{this.reference_code}}" formControlName="reference" name="reference" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['reference'].valid && pForm.controls['reference'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.date_of_purchased}}</ion-label>
+            <!-- <ion-input round type="date" placeholder="Select a date" formControlName="date_of_purchase" name="date_of_purchase" ></ion-input> -->
+            <ion-datetime round displayFormat="DD/MM/YYYY" placeholder="Select a date" formControlName="date_of_purchase" name="date_of_purchase" class="new-date"></ion-datetime>
+        
+          </ion-item>
+          <ion-item>
+              <ion-label stacked color="primary">{{this.status_of_the_watch}}*</ion-label>
+          </ion-item>
+
+          <ion-item class="select-custom">
+             
+          <button ion-button block class="country-select" (click)="show()"><img src="assets/img/{{simg}}" alt="">{{sname}}</button>
+          </ion-item>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <ion-item>
+            <ion-label stacked color="primary">Status of the watch*</ion-label>
+            <ion-select name="status" formControlName="status">
+              <ion-option value="{{st.name}}" *ngFor="let st of statuslists">{{st.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['status'].valid && pForm.controls['status'].touched" ion-text color="danger" padding-left>
+          Status is required </p> -->
+        <ion-item class="select-custom4" style="margin-top: -15px;">
+          <ion-label stacked no-margin color="primary">{{countries}}*</ion-label>
+          <ion-select name="country" (ionChange)="stateList($event)" formControlName="country">
+            <ion-option value="{{c.id}}" *ngFor="let c of countrylists">{{c.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+      <p *ngIf="!pForm.controls['country'].valid && pForm.controls['country'].touched" ion-text color="danger" padding-left>
+        {{this.please_choose_a_country}} </p>
+      <ion-item>
+          <ion-label stacked color="primary">{{this.state}}*</ion-label>
+          <ion-select name="state" (ionChange)="cityList($event)" formControlName="state">
+            <ion-option value="{{s.id}}" *ngFor="let s of statelists">{{s.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <p *ngIf="!pForm.controls['state'].valid && pForm.controls['state'].touched" ion-text color="danger" padding-left>
+        {{this.please_choose_a_state}} </p>
+
+        <ion-item class="phone-wrap">
+            <ion-label stacked color="primary">{{this.Owner_Number}}*</ion-label>
+            <ion-label ><span class="phone-no">+{{phonecode}}</span></ion-label>
+            <ion-input round type="number" min="0" placeholder="Type phone no." formControlName="owner_number" name="owner_number" required *ngIf="utype==1" readonly></ion-input>
+            <ion-input round type="number" min="0" placeholder="Type phone no." formControlName="owner_number" name="owner_number" required *ngIf="utype==2"></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['owner_number'].valid && pForm.controls['owner_number'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}}  </p>
+
+      <!-- <ion-item>
+          <ion-label stacked color="primary">City</ion-label>
+          <ion-select name="city" formControlName="city">
+            <ion-option value="{{ct.id}}" *ngFor="let ct of citylists">{{ct.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <p *ngIf="!pForm.controls['city'].valid && pForm.controls['city'].touched" ion-text color="danger" padding-left>
+        City is required </p> -->
+      
+
+      <div padding class="no-p-t p-b-5">
+          <!-- <button ion-button round class="grey-btn" (click)="onSubmit(aForm.value)" type="submit" block>Save</button> -->
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.next}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+</ion-content>
+<ion-content *ngIf="selectedlanguage == 1">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+        
+        <ion-item>
+            <ion-label stacked color="primary">{{this.movement}}*</ion-label>
+            <ion-select name="movement" formControlName="movement">
+                <ion-option value="{{ml.name}}" *ngFor="let ml of movementlist">{{ml.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['movement'].valid && pForm.controls['movement'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.gender}}*</ion-label>
+            <ion-select name="gender" formControlName="gender">
+              <ion-option value="Male">{{this.male}}</ion-option>
+              <ion-option value="Female">{{this.female}}</ion-option>
+              <ion-option value="Unisex">{{this.unisex}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['gender'].valid && pForm.controls['gender'].touched" ion-text color="danger" padding-left>
+          {{this.please_choose_your_gender}} </p>
+        
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.reference_code}}*</ion-label>
+            <ion-input round type="text" placeholder="{{this.reference_code}}" formControlName="reference" name="reference" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['reference'].valid && pForm.controls['reference'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.date_of_purchased}}</ion-label>
+            <ion-datetime round displayFormat="DD/MM/YYYY" placeholder="Select a date" formControlName="date_of_purchase" name="date_of_purchase" class="new-date"></ion-datetime>
+          </ion-item>
+
+
+
+
+            <ion-item>
+          <ion-label stacked color="primary">{{this.status_of_the_watch}}*</ion-label>
+          </ion-item>
+          <ion-item class="select-custom">
+          <button ion-button block class="country-select" (click)="show()"><img src="assets/img/{{simg}}" alt="">{{sname}}</button>
+          </ion-item>
+          <!-- <div class="custom-dropdown" *ngIf ="isShow">
+          <ion-list radio-group>
+          <ion-list-header>{{this.Status}}</ion-list-header>
+                        
+          <ion-list class="list-area-radio">
+          <ion-item *ngFor="let st of statuslists">
+          <ion-label><img src="assets/img/{{st.images}}" alt="">{{st.name}}</ion-label>
+          <ion-radio value="{{st.name}}" (ionSelect)="selectstatus(st.name,st.images)"></ion-radio>
+          </ion-item>
+                             
+          </ion-list>
+          <ion-row>
+              <ion-col>
+                  <button block ion-button color="dark" round outline (click)='hide()'>{{this.Cancel}}</button>
+              </ion-col>
+          </ion-row>
+          </ion-list>
+          </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <ion-item>
+            <ion-label stacked color="primary">Status of the watch*</ion-label>
+            <ion-select name="status" formControlName="status">
+              <ion-option value="{{st.name}}" *ngFor="let st of statuslists">{{st.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['status'].valid && pForm.controls['status'].touched" ion-text color="danger" padding-left>
+          Status is required </p> -->
+        
+      <ion-item style="margin-top: -15px;">
+        <ion-label stacked color="primary">{{countries}}*</ion-label>
+        <ion-select name="country" (ionChange)="stateList($event)" formControlName="country">
+          <ion-option value="{{c.id}}" *ngFor="let c of countrylists">{{c.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <p *ngIf="!pForm.controls['country'].valid && pForm.controls['country'].touched" ion-text color="danger" padding-left>
+        {{this.please_choose_a_country}} </p>
+      <ion-item>
+          <ion-label stacked color="primary">{{this.state}}*</ion-label>
+          <ion-select name="state" (ionChange)="cityList($event)" formControlName="state">
+            <ion-option value="{{s.id}}" *ngFor="let s of statelists">{{s.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <p *ngIf="!pForm.controls['state'].valid && pForm.controls['state'].touched" ion-text color="danger" padding-left>
+        {{this.please_choose_a_state}} </p>
+
+        <ion-item class="phone-wrap">
+            <ion-label stacked color="primary">{{this.Owner_Number}}*</ion-label>
+            <ion-label><span class="phone-no">+{{phonecode}}</span></ion-label>
+            <ion-input round type="number" min="0" placeholder="Type phone no." formControlName="owner_number" name="owner_number" required *ngIf="utype==1" readonly></ion-input>
+            <ion-input round type="number" min="0" placeholder="Type phone no." formControlName="owner_number" name="owner_number" required *ngIf="utype==2"></ion-input>
+          </ion-item>
+        <p *ngIf="!pForm.controls['owner_number'].valid && pForm.controls['owner_number'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}}  </p>
+
+      <!-- <ion-item>
+          <ion-label stacked color="primary">City</ion-label>
+          <ion-select name="city" formControlName="city">
+            <ion-option value="{{ct.id}}" *ngFor="let ct of citylists">{{ct.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <p *ngIf="!pForm.controls['city'].valid && pForm.controls['city'].touched" ion-text color="danger" padding-left>
+        City is required </p> -->
+      
+
+      <div padding class="no-p-t p-b-5">
+          <!-- <button ion-button round class="grey-btn" (click)="onSubmit(aForm.value)" type="submit" block>Save</button> -->
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.next}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+</ion-content>

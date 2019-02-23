@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AdvertisePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>advertise</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content padding class="advertise-holder">
+  <p class="skip text-right"><a (click)="skip()">SKIP</a></p>
+  
+  <div overflow-scroll="true" *ngFor="let videos of videoList" >
+    <div  *ngIf="videos.type==1">
+      <video  *ngIf="videos.count == counter" fullscreen="fullscreen" width="100%" controls="controls"  (ended)="videoEnded()" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+        <source  src="{{videos.video}}" type="video/mp4" />
+      </video>
+    </div>
+    <div  *ngIf="videos.type==2">
+        <img src="{{videos.video}}"  width="100%">
+      </div>
+  </div>
+
+ 
+  <div class="logo"><img src="assets/img/advertise-logo.png" alt="logo"></div>
+</ion-content>

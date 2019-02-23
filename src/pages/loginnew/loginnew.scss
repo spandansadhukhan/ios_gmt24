@@ -1,0 +1,39 @@
+page-loginnew {
+    .logo {margin-top: 15px;
+        padding: 20px 0;
+        text-align: center;
+        img {
+          max-width: 50%;
+        }
+        h3{ font-family: 'Poppins', sans-serif; text-transform: uppercase; padding-top: 12px; color:#fff}
+      }
+    
+    .content{background: url('../assets/img/log-bg.jpg') no-repeat top center; background-size: cover}
+    ion-label[fixed]{width:100%; max-width: 100%; min-width: 100%; margin-top:5px; margin-bottom: 0px}
+    .input-field .input-wrapper{flex-wrap: wrap}
+    .input-field {padding-left:0; margin-bottom: 10px}
+    .input-field .item-inner{padding-right:0 !important; border-bottom-color:#808080 !important; box-shadow:none !important}
+    .input-field ion-input { border: 0; background-color:transparent; width: 100%; }
+    .input-field ion-input .text-input{margin: 5px 0; width: 100%; color:#e1e1e1;  font-size: 1.4rem}
+
+    .item{ background-color: transparent; border-top:0 !important;  }
+    
+    .label{color: #fff !important; font-family: 'Poppins', sans-serif; font-size: 1.2rem !important; font-weight: 400; }
+
+    .remember-panel .item-inner{border-bottom:0  !important; box-shadow:none !important}
+
+    .checkbox{ margin-right: 5px !important;}
+    .checkbox .checkbox-checked{ background-color: #565656; border-color: #6e6e6e; }
+    .grid .row .col .item .item-inner{ padding-right: 0!important; }
+    .grid .row .col .item .item-inner .input-wrapper .label{ text-overflow: normal; white-space: normal; word-wrap: break-all; font-size: 1.3rem !important;}
+    
+  .or{margin: 35px 0 12px}
+
+    .line{ border-top: 1px solid #6d6d6d; margin-top: 8px;}
+
+    .fb-btn{ background: #19418b; border-radius:100%; width:44px; height:44px}
+    .g-plus-btn{ background: #d93703; border-radius:100%; width:44px; height:44px}
+    .fb-btn img, .g-plus-btn img{max-width:30px !important}
+    .bottom-text{ text-align: center; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px; }
+    .bottom-text span{ text-decoration: underline; }
+}

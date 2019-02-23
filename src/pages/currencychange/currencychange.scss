@@ -1,0 +1,36 @@
+page-currencychange {
+    .logo {
+        padding: 30px 0;
+        text-align: center;
+        img {
+          max-width: 50%;
+        }
+        h3{ font-family: 'Poppins', sans-serif; text-transform: uppercase; padding-top: 50px; color:#fff; letter-spacing: 1px;}
+      }
+    
+    .content{background: url('../assets/img/language--bg.jpg') no-repeat top center; background-size: cover}
+    ion-label[fixed]{width:100%; max-width: 100%; min-width: 100%; margin-top:5px; margin-bottom: 0px}
+    .input-field .input-wrapper{flex-wrap: wrap}
+    .input-field {padding-left:0; margin-bottom: 10px}
+    .input-field .item-inner{padding-right:0 !important; border-bottom:none !important; box-shadow:none !important}
+    .input-field ion-input { border: 0; background-color:transparent; width: 100%; }
+    .input-field ion-input .text-input{margin: 5px 0; width: 100%; color:#e1e1e1; font-size: 1.4rem}
+
+    .item{ background-color: transparent; border-top:0 !important;  }
+    
+    .label{color: #fff !important; font-family: 'Poppins', sans-serif; font-size: 1.2rem !important; font-weight: 400; margin-bottom: 5px!important; }
+
+    ion-select.select {border: 1px solid #666666;background-color: #333333; height:43px; border-radius: 25px; padding-top: 10px!important; padding-bottom: 10px!important}
+    .select-text{ padding: 0 12px; font-size: 1.4rem; color: #999;}
+    .select-icon .select-icon-inner{left:0 !important}
+    
+    .rtl-arabic{
+      text-align: right;
+      .item{
+          text-align: right;
+      }
+      .text-input{
+          text-align: right;
+      }
+  }
+}

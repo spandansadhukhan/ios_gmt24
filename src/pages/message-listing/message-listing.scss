@@ -1,0 +1,44 @@
+page-message-listing {
+	ion-navbar ion-icon {
+        color: #fff;
+        // position: absolute;
+        // top: 30%;
+        font-size: 20px;
+        font-weight: 600;
+        left: 15px;
+        float: right !important;
+    }
+    .image-m{
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border: 2px solid #888;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between;
+    }
+    .content { background: #e5e5e5 !important;}
+        .scroll-content{padding: 10px !important}
+        .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px}
+        .item.request-item h2{font-size: 1.5rem; color:#222; font-weight:500; display:block; margin-bottom:0px; margin-top:5px; clear:both;}
+        .item.request-item .price{font-size: 1.5rem; color:#000}
+        .item.request-item .price span{color:#888; font-weight: 600}
+        .item.request-item .name{font-size: 1.2rem; color:#000}
+        .item.request-item .name span{color:#888;}
+        .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+        .item.request-item ion-thumbnail{min-width: 50px !important;}
+        .item.request-item ion-thumbnail img{height:50px; width:50px; border-radius: 100%; object-fit:cover;}
+        .item.request-item .button{height:32px; padding-left: 1.5em; padding-right: 1.4em}
+        .item.request-item .item-inner{border-bottom:0}
+        .item-md ion-thumbnail{min-height: auto !important;}
+        .rtl-arabic{
+            .item{
+                text-align: right;
+                flex-direction: row-reverse;
+            }
+            .row{
+                flex-direction: row-reverse;
+            }
+        }
+    }

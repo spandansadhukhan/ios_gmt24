@@ -1,0 +1,53 @@
+page-shopproductlist {
+    .bar-buttons-start{ order: 3;}
+    ion-title{ text-align: center;}
+    ion-title .toolbar-title{align-items: center; display: flex; justify-content: center;}
+    ion-title .toolbar-title img{ width: 100px; margin: 0 auto;}
+    .toolbar .bar-button{font-size: 2.2rem;}
+    
+    .header .toolbar{ min-height:48px;}
+    
+    .row{ background-color: #838383; display: flex; align-items: center;}
+    .searchbar { background-color: transparent; padding-right: 0; border:0 !important;}
+    .searchbar .searchbar-input{ border-radius: 24px;}
+    
+    .rt-icon-area{width: auto; text-align: center; color: #ffffff; font-size: 1.6rem;}
+    .content { background: #e5e5e5 !important;}
+    .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px; padding-left: 8px;}
+    .item.request-item h2{font-size: 1.7rem; color:#222;}
+    .item.request-item .price{ width: auto; }
+    .item.request-item .price .amount{font-size: 1.5rem; font-weight: 500; color:#000;}
+    .item.request-item .price span{color:#888; font-weight: 600}
+    .item.request-item .price span .icon{ font-size: 2rem; }
+    .item.request-item .name{font-size: 1.22rem; color:#000; margin-bottom: 0;}
+    .item.request-item .name span{color:#888;}
+    .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+    .item.request-item ion-thumbnail{width: 100px; height: 100px; object-fit: cover; overflow: hidden;  position: relative;}
+    .item.request-item ion-thumbnail img{height:100%; width:100%;}
+    .top-tag{width: 47px; height: 47px; position: absolute; z-index: 100; left: 12px; top: 12px;}
+    .top-tag p{  position: absolute; z-index: 100; left: 0; top: 13px; text-transform: uppercase; right: 0; text-align: center; font-size: 1.1rem; font-weight: 300; color: #ffffff;} 
+    .item.request-item .button{height:32px; padding-left: 1.5em; padding-right: 1.4em}
+    .item.request-item .item-inner{border-bottom:0; padding-right: 0 !important;}
+    
+    .batch{ display: flex; align-items: center;  }
+    .batch-pic{ width: 21px; height: 26px; overflow: hidden; padding-right: 0.3rem;}
+    .batch-pic img{width: 100%;}
+    .batch-text{overflow: hidden; text-overflow: ellipsis; 
+        // display: -webkit-box; line-height: 16px; max-height: 32px; -webkit-line-clamp: 2; -webkit-box-orient: vertical;   
+    }
+    
+    
+    
+    .pt-0{padding-top: 0;}
+    .pr-0{padding-right: 0;}
+    .pb-0{padding-bottom: 0;}
+    .pl-0{padding-left: 0;}
+    .rtl-arabic{
+        .item.request-item{
+            flex-direction: row-reverse;
+            .item-inner{
+                text-align: right;
+            }            
+        }
+    }
+}

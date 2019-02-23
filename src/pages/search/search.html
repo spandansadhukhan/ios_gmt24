@@ -1,0 +1,119 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    
+      <!-- <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button> -->
+    <ion-title>
+      <img src="assets/img/appicon.png" class="mr-2" alt="">
+    </ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button>
+        <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+      </button>
+      <button ion-button>
+        <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+  
+  <ion-row>
+    <ion-col col-10 class="pt-0 pb-0 pl-0">
+      <ion-searchbar [(ngModel)]="keyword" (ngModelChange)="updateKeyword($event)"></ion-searchbar>
+      
+    </ion-col>
+    <ion-col col-1 class="pt-0 pb-0 pr-0">
+      <div class="rt-icon-area" (click)='filter()'>
+        <ion-icon ios="ios-funnel" md="md-funnel" ></ion-icon>
+      </div>     
+    </ion-col> 
+    <ion-col col-1 class="pt-0 pb-0 pr-0">
+        <div class="rt-icon-area" (click)='changecurrency()'>
+          <ion-icon ios="ios-swap" md="md-swap"></ion-icon>
+        </div>     
+    </ion-col>
+    
+  </ion-row>
+
+  <div class="search-listing">
+    <ion-item [hidden]="wordlists.length==0" *ngFor="let item of wordlists" tappable (click)="selectSearchResult(item.field)">
+        {{ item.field }}
+    </ion-item>
+  </div>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="selectedlanguage == 1">
+  <ion-list>
+    <ion-item class="request-item" *ngFor="let product of productlists" (click)="productdetails(product.product_id)">
+      <div class="top-tag" *ngIf="product.top_product==1">
+        <img src="assets/img/top.png" alt="">
+      </div>
+      
+      <ion-thumbnail item-start>       
+        <img src="{{product.image}}" alt="">
+      </ion-thumbnail>
+      <h2>{{product.brands}}/{{product.category_name}}({{product.gender}})</h2>
+      <p class="name">
+        <span>{{this.seller}}:</span> {{product.seller_name}}.</p>
+      <p class="price">
+        <span><ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon></span>
+        <span class="amount">{{product.currency_code}} {{product.price}}</span>
+      </p>
+      <!-- <p class="batch" >
+         <span class="batch-pic"> <img  src="assets/img/top.png" alt=""> </span> 
+       <span class="batch-text">Trusted Seller since 2016</span>  
+        
+      </p> -->
+    </ion-item>
+    
+    <ion-item class="request-item" *ngIf="productlists == ''">
+      
+      {{this.no_records_found}} 
+        
+      </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-content padding *ngIf="selectedlanguage == 2" class="rtl-arabic">
+
+  <ion-list>
+    <ion-item class="request-item" *ngFor="let product of productlists" (click)="productdetails(product.product_id)">
+      <div class="top-tag" *ngIf="product.top_product==1">
+        <img src="assets/img/top.png" alt="">
+      </div>
+      
+      <ion-thumbnail item-start>       
+        <img src="{{product.image}}" alt="">
+      </ion-thumbnail>
+      <h2>{{product.brands}}/{{product.category_name}}({{product.gender}})</h2>
+      <p class="name">
+        <span>{{this.seller}}:</span> {{product.seller_name}}.</p>
+      <p class="price">
+        <span><ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon></span>
+        <span class="amount">{{product.currency_code}} {{product.price}}</span>
+      </p>
+      <!-- <p class="batch" >
+         <span class="batch-pic"> <img  src="assets/img/top.png" alt=""> </span> 
+       <span class="batch-text">Trusted Seller since 2016</span>  
+        
+      </p> -->
+    </ion-item>
+    
+    <ion-item class="request-item" *ngIf="productlists == ''">
+      
+      {{this.no_records_found}} 
+        
+      </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,397 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>details</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar>
+      
+    
+    <ion-title>
+      <img src="assets/img/appicon.png" alt="">
+    </ion-title>
+
+    <ion-buttons end >
+      <button ion-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<div class="rating-part" *ngIf ="isShow">
+  <ion-card class="rating-area" >
+<rating readOnly="false" [(ngModel)]="rate" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"> 
+</rating>
+<ion-item>
+    <ion-label stacked color="primary">{{reviewss}}</ion-label>
+<ion-input  type="text" [(ngModel)]="review" placeholder="Type your review" required>
+    </ion-input>
+  </ion-item>
+  <p style="padding: 0 16px;">{{Recommend_this_product}} ?</p>
+  <ion-list class="review-recommend" radio-group [(ngModel)]="recomend">
+     
+      <ion-item>
+        <ion-label>{{Yes}}</ion-label>
+        <ion-radio value="1" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{No}}</ion-label>
+        <ion-radio value="2"></ion-radio>
+      </ion-item>
+    </ion-list>
+<ion-row>
+  <ion-col col-6>
+    <button ion-button color="dark" block (click)="submit()">{{save}}</button>
+  </ion-col>
+  <ion-col col-6>
+      <button ion-button color="light"  block (click)='hide()'>{{Cancel}}</button>
+    
+    </ion-col>
+</ion-row>
+</ion-card>
+</div>
+
+<ion-content style="margin-bottom: 50px" *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  
+  <ion-card>
+    <ion-card-content class="height-250">
+    <div class="like" *ngIf="user_id!=seller_id && ptype==1">
+      <p class="top-content" (click)="favourite(seller_id)">
+        <img *ngIf="is_fav== 0" src="assets/img/thumb2.png" alt="">
+        <img *ngIf="is_fav== 1" src="assets/img/thumsup.png" alt="">
+        <span>{{totallike}}</span>
+      </p>
+
+      </div>
+      <!-- <div class="heart" *ngIf="user_id!=seller_id && ptype==1">
+          <div class="thumb-area" (click)="favourite(seller_id)">
+            <img *ngIf="is_fav== 0" src="assets/img/heart.png" alt="">
+            <img *ngIf="is_fav== 1" src="assets/img/heart-red.png" alt="">
+          </div>
+      </div> -->
+      <ion-slides class="image-slider" loop="true" pager>
+
+        <ion-slide *ngFor="let img of sliderimages">
+          <img src="{{img.src}}" class="detail-pic" imageViewer/>
+        </ion-slide>
+      </ion-slides>
+      <!-- <img class="detail-pic" src="{{product_single_image}}" alt=""> -->
+      <ion-row justify-content-center>
+        <!-- <ion-col col-2 class="pr-0">
+          <div class="thumb-area">
+            <img src="assets/img/thumb.png" alt="">
+          </div>
+        </ion-col> -->
+        
+      </ion-row>
+    </ion-card-content>
+    <div class="body-area">
+    <div class="d-box">
+    	<h2 style="padding-bottom: 5px;">{{brands}}/{{category}}({{gender}})</h2>
+      <p *ngIf="ptype==1" style="border: none;">
+          <ion-icon *ngIf="averagerating>=1" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=2" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=3" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=4" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=5" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating%1!=0" name="star-half"></ion-icon>
+          <ion-icon *ngIf="averagerating==0" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=1" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=2" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=3" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=4" name="star-outline"></ion-icon> 
+         ({{averagerating}}) <span>
+      	<a class="new-abtn" *ngIf="ptype== 1 && user_id!=seller_id" (click)="show()">{{Write_a_review}}</a>
+      </span> </p>
+      <h1>{{currency_code}} {{price}}</h1>
+    </div>
+      
+      
+
+
+      <!-- <div class="d-box" *ngIf="interest== 1">
+        <div padding style="padding-bottom: 15px" >
+          <button ion-button round class="grey-btn" block (click)="ishide()">{{send_message}}</button>
+        </div>
+        <div *ngIf="hideMe">
+        <form padding [formGroup]="sellercontactfrom">
+          <h2>{{Your_Messages}}</h2>
+          <ion-textarea round rows="5" maxLength="500" placeholder="Type Message" formControlName="message"></ion-textarea>
+          <div padding class="p-b-5">
+            <button ion-button round class="grey-btn" (click)="addmessage(sellercontactfrom.value)" type="submit" block>{{Send}}</button>
+          </div>
+        </form>
+      </div>
+      </div> -->
+
+
+
+      <!-- <div class="d-box" *ngIf="interest!='0'">
+      <h2>Location Map</h2>
+      <div id="map" style="height:400px;"> 
+      </div>
+      </div> -->
+
+      <div class="d-box">
+      <h2>{{Product_Informations}}</h2>
+      <p><span>{{Product_Bracelet_Type}}:</span> {{breslet_type}}</p>
+      <p><span>{{Product_Size}}:</span> {{size}}</p>
+      <p><span>{{Model_Year}}:</span> {{model_year}}</p>
+      <p><span>{{movementss}}:</span> {{movement}}</p>
+      <p><span>{{Date_of_Purchased}}:</span> {{date_purchase}}</p>
+      <p *ngIf="status_watch=='New'"><span>{{Status_of_watch}}:</span> {{status_watch}} </p>
+      <p *ngIf="status_watch=='Mint'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon  ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Excellent'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon  ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Good'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Fair'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Poor'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+
+      <p><span>{{Product_Description}}:<br /></span> {{description}}</p>
+      <p><span>{{reference_noss}}:</span> {{reference_no}}</p>
+      </div>
+      <div class="d-box" *ngIf="ptype==1">
+      <h2>{{reviewss}}</h2>
+      <div class="noti-list"  *ngIf="reviews!=''">
+      <ion-item *ngFor="let r of reviews">
+      <ion-avatar item-start>
+        <img src="{{r.userimage}}" alt="">
+      </ion-avatar>
+      
+      <h2>{{r.username}}</h2>
+      <p style="border: none;"> 
+          <ion-icon *ngIf="r.rating>=1" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=2" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=3" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=4" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=5" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating%1!=0" name="star-half"></ion-icon>
+          <ion-icon *ngIf="r.rating==0" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=1" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=2" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=3" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=4" name="star-outline"></ion-icon>
+        ({{r.rating}})</p>
+      <p>{{r.review}}</p>
+      <small>{{r.date}} {{Days_ago}}</small>
+    </ion-item>
+
+    
+    </div>
+    <div  *ngIf="reviews ==''">
+      <ion-item>
+        {{no_records_found}}
+        </ion-item>
+    </div>
+    </div>
+
+    <div class="d-box">
+    <h2>{{Seller_Info}}</h2>
+    <p><span>{{Seller_Name}}:</span> {{seller_name}}</p>
+    <p *ngIf="interest== 1" (click)="call(seller_phone)"><ion-icon name="call"></ion-icon><span></span> {{seller_phone}}</p>
+    <p *ngIf="interest== 1" (click)="navigateDrivingLocation()"><span>{{Address}}:</span><br/>{{seller_address}}</p>
+    </div>
+    
+</div>
+    
+    
+<div class="d-box" *ngIf="interest== 1">
+    <div padding style="padding-bottom: 15px" >
+      <button ion-button round class="grey-btn" block (click)="ishide()">{{send_message}}</button>
+    </div>
+    <div *ngIf="hideMe">
+    <form padding [formGroup]="sellercontactfrom">
+      <h2>{{Your_Messages}}</h2>
+      <ion-textarea round rows="5" maxLength="500" placeholder="Type Message" formControlName="message"></ion-textarea>
+      <div padding class="p-b-5">
+        <button ion-button round class="grey-btn" (click)="addmessage(sellercontactfrom.value)" type="submit" block>{{Send}}</button>
+      </div>
+    </form>
+  </div>
+  </div>
+    <div padding style="padding-bottom: 15px" *ngIf="ptype== 1 && user_id!=seller_id && interest== 0">
+      <button ion-button round class="grey-btn" block (click)="interestedEmailToVendor(seller_id,ptype)">{{contact_seller}}</button>
+    </div>
+    <div padding *ngIf="(ptype== 2 && ctime > start_time && user_id!=seller_id) || (ptype== 2 && ctime > start_time && user_type==3)" style="padding-bottom: 45px">
+      <button ion-button round class="grey-btn"  block (click)="gotobid()">{{this.Go_Live_Bidding}}</button>
+    </div>
+
+  </ion-card>
+
+</ion-content>
+
+<ion-content style="margin-bottom: 50px" *ngIf="selectedlanguage == 1">
+
+ 
+  <ion-card>
+    <ion-card-content class="height-250">
+    <div class="like" *ngIf="user_id!=seller_id && ptype==1">
+      <p class="top-content" (click)="favourite(seller_id)">
+        <img *ngIf="is_fav== 0" src="assets/img/thumb2.png" alt="">
+        <img *ngIf="is_fav== 1" src="assets/img/thumsup.png" alt="">
+        <span>{{totallike}}</span>
+      </p>
+
+      </div>
+      <!-- <div class="heart" *ngIf="user_id!=seller_id && ptype==1">
+          <div class="thumb-area" (click)="favourite(seller_id)">
+            <img *ngIf="is_fav== 0" src="assets/img/heart.png" alt="">
+            <img *ngIf="is_fav== 1" src="assets/img/heart-red.png" alt="">
+          </div>
+      </div> -->
+      <ion-slides class="image-slider" loop="true" pager>
+
+        <ion-slide *ngFor="let img of sliderimages">
+          <img src="{{img.src}}" class="detail-pic" imageViewer/>
+        </ion-slide>
+      </ion-slides>
+      <!-- <img class="detail-pic" src="{{product_single_image}}" alt=""> -->
+      <ion-row justify-content-center>
+        <!-- <ion-col col-2 class="pr-0">
+          <div class="thumb-area">
+            <img src="assets/img/thumb.png" alt="">
+          </div>
+        </ion-col> -->
+        
+      </ion-row>
+    </ion-card-content>
+    <div class="body-area">
+    <div class="d-box">
+    	<h2 style="padding-bottom: 5px;">{{brands}}/{{category}}({{gender}})</h2>
+      <p *ngIf="ptype==1" style="border: none;">
+          <ion-icon *ngIf="averagerating>=1" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=2" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=3" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=4" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating>=5" name="star"></ion-icon>
+          <ion-icon *ngIf="averagerating%1!=0" name="star-half"></ion-icon>
+          <ion-icon *ngIf="averagerating==0" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=1" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=2" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=3" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="averagerating<=4" name="star-outline"></ion-icon> 
+         ({{averagerating}}) <span>
+      	<a class="new-abtn" *ngIf="ptype== 1 && user_id!=seller_id" (click)="show()">{{Write_a_review}}</a>
+      </span> </p>
+      <h1>{{currency_code}} {{price}}</h1>
+    </div>
+      
+      
+
+
+      <!-- <div class="d-box" *ngIf="interest== 1">
+        <div padding style="padding-bottom: 15px" >
+          <button ion-button round class="grey-btn" block (click)="ishide()">{{send_message}}</button>
+        </div>
+        <div *ngIf="hideMe">
+        <form padding [formGroup]="sellercontactfrom">
+          <h2>{{Your_Messages}}</h2>
+          <ion-textarea round rows="5" maxLength="500" placeholder="Type Message" formControlName="message"></ion-textarea>
+          <div padding class="p-b-5">
+            <button ion-button round class="grey-btn" (click)="addmessage(sellercontactfrom.value)" type="submit" block>{{Send}}</button>
+          </div>
+        </form>
+      </div>
+      </div> -->
+
+
+
+      <!-- <div class="d-box" *ngIf="interest!='0'">
+      <h2>Location Map</h2>
+      <div id="map" style="height:400px;"> 
+      </div>
+      </div> -->
+
+      <div class="d-box">
+      <h2>{{Product_Informations}}</h2>
+      <p><span>{{Product_Bracelet_Type}}:</span> {{breslet_type}}</p>
+      <p><span>{{Product_Size}}:</span> {{size}}</p>
+      <p><span>{{Model_Year}}:</span> {{model_year}}</p>
+      <p><span>{{movementss}}:</span> {{movement}}</p>
+      <p><span>{{Date_of_Purchased}}:</span> {{date_purchase}}</p>
+      <p *ngIf="status_watch=='New'"><span>{{Status_of_watch}}:</span> {{status_watch}} </p>
+      <p *ngIf="status_watch=='Mint'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon  ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Excellent'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon  ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Good'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Fair'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon><ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+      <p *ngIf="status_watch=='Poor'"><span>{{Status_of_watch}}:</span> {{status_watch}} <ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+
+      <p><span>{{Product_Description}}:<br /></span> {{description}}</p>
+      <p><span>{{reference_noss}}:</span> {{reference_no}}</p>
+      </div>
+      <div class="d-box" *ngIf="ptype==1">
+      <h2>{{reviewss}}</h2>
+      <div class="noti-list" *ngIf="reviews!=''">
+      <ion-item *ngFor="let r of reviews">
+      <ion-avatar item-start>
+        <img src="{{r.userimage}}" alt="">
+      </ion-avatar>
+      <h2>{{r.username}}</h2>
+      <p style="border: none;"> 
+          <ion-icon *ngIf="r.rating>=1" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=2" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=3" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=4" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating>=5" name="star"></ion-icon>
+          <ion-icon *ngIf="r.rating%1!=0" name="star-half"></ion-icon>
+          <ion-icon *ngIf="r.rating==0" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=1" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=2" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=3" name="star-outline"></ion-icon>
+          <ion-icon *ngIf="r.rating<=4" name="star-outline"></ion-icon>
+        ({{r.rating}})</p>
+      <p>{{r.review}}</p>
+      <small>{{r.date}} {{Days_ago}}</small>
+    </ion-item>
+
+    
+    </div>
+    <div *ngIf="reviews==''">
+      <ion-item>
+        {{no_records_found}}
+        </ion-item>
+    </div>
+    </div>
+
+    <div class="d-box">
+    <h2>{{Seller_Info}}</h2>
+    <p><span>{{Seller_Name}}:</span> {{seller_name}}</p>
+    <p (click)="call(seller_phone)"><ion-icon name="call"></ion-icon><span></span> {{seller_phone}}</p>
+    <p *ngIf="interest== 1" (click)="navigateDrivingLocation()"><span>{{Address}}:</span><br/>{{seller_address}}</p>
+    </div>
+    
+</div>
+    
+    
+<div class="d-box" *ngIf="interest== 1">
+    <div padding style="padding-bottom: 15px" >
+      <button ion-button round class="grey-btn" block (click)="ishide()">{{send_message}}</button>
+    </div>
+    <div *ngIf="hideMe">
+    <form padding [formGroup]="sellercontactfrom">
+      <h2>{{Your_Messages}}</h2>
+      <ion-textarea round rows="5" maxLength="500" placeholder="Type Message" formControlName="message"></ion-textarea>
+      <div padding class="p-b-5">
+        <button ion-button round class="grey-btn" (click)="addmessage(sellercontactfrom.value)" type="submit" block>{{Send}}</button>
+      </div>
+    </form>
+  </div>
+  </div>
+    <div padding style="padding-bottom: 15px" *ngIf="ptype== 1 && user_id!=seller_id && interest== 0">
+      <button ion-button round class="grey-btn" block (click)="interestedEmailToVendor(seller_id,ptype)">{{contact_seller}}</button>
+    </div>
+    <div padding *ngIf="(ptype== 2 && ctime > start_time && user_id!=seller_id) || (ptype== 2 && ctime > start_time && user_type==3)" style="padding-bottom: 45px">
+      <button ion-button round class="grey-btn"  block (click)="gotobid()">{{this.Go_Live_Bidding}}</button>
+    </div>
+
+  </ion-card>
+</ion-content>

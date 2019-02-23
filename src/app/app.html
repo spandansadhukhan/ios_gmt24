@@ -1,0 +1,265 @@
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+<ion-split-pane when="isLarge">
+
+    <ion-menu id="loggedOutMenu" class="menu-bg" [content]="content" >
+      <ion-header>
+        <ion-item class="side-bar-header">
+          <div class="logo">
+            <img src="assets/img/appicon.png" alt="Ionic logo">
+          </div>
+        </ion-item>
+      </ion-header>
+     
+      <ion-content *ngIf="selectedlanguage == 1">
+        <ion-card class="sidepanel-list left-menu" *ngIf="istype==1 || istype==2" style="padding-bottom: 5rem;">
+          <ion-item menuClose (click)="myaccount()">
+            <ion-icon name="person" item-start ></ion-icon> {{this.profile}}
+          </ion-item>
+          <ion-item menuClose (click)="changepassword()">
+            <ion-icon name="unlock" item-start></ion-icon> {{this.change_password}}
+          </ion-item> 
+          <ion-item menuClose (click)="changecurrency()">
+            <ion-icon name="switch" item-start></ion-icon> {{this.Change_Currency}}
+          </ion-item>
+          <ion-item menuClose (click)="changelanguage()">
+            <ion-icon name="switch" item-start></ion-icon> Change Language
+          </ion-item>
+          <ion-item menuClose (click)="loyalty()" *ngIf="istype==1">
+            <ion-icon name="person" item-start></ion-icon> {{this.My_Loyalty}}
+          </ion-item> 
+          
+          <ion-item menuClose (click)="notifications()">
+            <ion-icon name="notifications" item-start></ion-icon> {{this.notificationsss}}
+          </ion-item>
+
+          <ion-item menuClose (click)="subscriptions()" *ngIf="istype==2">
+              <ion-icon name="list-box" item-start></ion-icon> {{this.subscriptionsss}}
+            </ion-item>
+
+            <ion-item menuClose (click)="subscribedlist()" *ngIf="istype==2">
+              <ion-icon name="list-box" item-start></ion-icon> {{this.subscribed_list}}
+            </ion-item>
+
+          <ion-item menuClose (click)="addproduct()">
+            <ion-icon name="add-circle" item-start></ion-icon> {{this.add_product}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myproduct()">
+            <ion-icon name="watch" item-start></ion-icon> {{this.my_product}}
+          </ion-item>
+          
+          <ion-item menuClose (click)="wishlist()">
+            <ion-icon name="heart" item-start></ion-icon> {{this.favorite_or_wishlist}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myauction()">
+            <ion-icon name="watch" item-start></ion-icon> {{this.my_auction}}
+          </ion-item>
+
+          
+
+          <ion-item menuClose (click)="purchase()">
+            <ion-icon name="hammer" item-start></ion-icon> {{this.Purchased_or_Won_Auction}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myInterest()">
+            <ion-icon name="thumbs-up" item-start></ion-icon> {{this.My_Interest}} 
+          </ion-item>
+
+          <ion-item menuClose (click)="customerInterest()">
+            <ion-icon name="thumbs-up" item-start></ion-icon> {{this.potential_buyers}} 
+          </ion-item>
+
+          <ion-item menuClose (click)="settings()">
+            <ion-icon name="settings" item-start></ion-icon> {{this.notification_settings}} 
+          </ion-item>
+
+
+
+          <ion-item menuClose (click)="messages()">
+            <ion-icon name="mail" item-start></ion-icon> {{this.messageses}}
+          </ion-item>
+
+          <ion-item menuClose (click)="aboutus(1)">
+            <ion-icon name="mail" item-start></ion-icon> {{about_us}}
+          </ion-item>
+
+          <ion-item menuClose (click)="logout()">
+            <ion-icon name="power" item-start></ion-icon> {{this.logouts}}
+          </ion-item>
+
+        </ion-card>
+
+
+        <ion-card class="sidepanel-list left-menu" *ngIf="istype==3" style="padding-bottom: 5rem;">
+          <ion-item menuClose (click)="signin()">
+            <ion-icon name="person" item-start ></ion-icon> {{this.Sign_In}}
+          </ion-item>
+          <ion-item menuClose (click)="signup()">
+            <ion-icon name="person" item-start></ion-icon> {{this.signups}}
+          </ion-item> 
+          <ion-item menuClose (click)="changecurrency()">
+            <ion-icon name="card" item-start></ion-icon> {{this.Change_Currency}}
+          </ion-item>
+          <ion-item menuClose (click)="changelanguage()">
+              <ion-icon name="switch" item-start></ion-icon> Change Language
+            </ion-item>
+        </ion-card>
+
+
+      </ion-content>
+      <ion-content *ngIf="selectedlanguage == 2" class="rtl-arabic">
+        <ion-card class="sidepanel-list left-menu" *ngIf="istype==1 || istype==2" style="padding-bottom: 5rem;">
+          <ion-item menuClose (click)="myaccount()">
+            <ion-icon name="person" item-start ></ion-icon> {{this.profile}}
+          </ion-item>
+          <ion-item menuClose (click)="changepassword()">
+            <ion-icon name="unlock" item-start></ion-icon> {{this.change_password}}
+          </ion-item> 
+          <ion-item menuClose (click)="changecurrency()">
+            <ion-icon name="switch" item-start></ion-icon> {{this.Change_Currency}}
+          </ion-item>
+          <ion-item menuClose (click)="changelanguage()">
+            <ion-icon name="switch" item-start></ion-icon> Change Language
+          </ion-item>
+          <ion-item menuClose (click)="loyalty()" *ngIf="istype==1">
+            <ion-icon name="person" item-start></ion-icon> {{this.My_Loyalty}}
+          </ion-item> 
+          
+          <ion-item menuClose (click)="notifications()">
+            <ion-icon name="notifications" item-start></ion-icon> {{this.notificationsss}}
+          </ion-item>
+
+          <ion-item menuClose (click)="subscriptions()" *ngIf="istype==2">
+              <ion-icon name="list-box" item-start></ion-icon> {{this.subscriptionsss}}
+            </ion-item>
+
+            <ion-item menuClose (click)="subscribedlist()" *ngIf="istype==2">
+              <ion-icon name="list-box" item-start></ion-icon> {{this.subscribed_list}}
+            </ion-item>
+
+          <ion-item menuClose (click)="addproduct()">
+            <ion-icon name="add-circle" item-start></ion-icon> {{this.add_product}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myproduct()">
+            <ion-icon name="watch" item-start></ion-icon> {{this.my_product}}
+          </ion-item>
+          
+          <ion-item menuClose (click)="wishlist()">
+            <ion-icon name="heart" item-start></ion-icon> {{this.favorite_or_wishlist}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myauction()">
+            <ion-icon name="watch" item-start></ion-icon> {{this.my_auction}}
+          </ion-item>
+
+          
+
+          <ion-item menuClose (click)="purchase()">
+            <ion-icon name="hammer" item-start></ion-icon> {{this.Purchased_or_Won_Auction}}
+          </ion-item>
+
+          <ion-item menuClose (click)="myInterest()">
+            <ion-icon name="thumbs-up" item-start></ion-icon> {{this.My_Interest}} 
+          </ion-item>
+
+          <ion-item menuClose (click)="customerInterest()">
+            <ion-icon name="thumbs-up" item-start></ion-icon> {{this.potential_buyers}} 
+          </ion-item>
+
+          <ion-item menuClose (click)="settings()">
+            <ion-icon name="settings" item-start></ion-icon> {{this.notification_settings}} 
+          </ion-item>
+
+
+
+          <ion-item menuClose (click)="messages()">
+            <ion-icon name="mail" item-start></ion-icon> {{this.messageses}}
+          </ion-item>
+
+          <ion-item menuClose (click)="aboutus(1)">
+            <ion-icon name="mail" item-start></ion-icon> {{about_us}}
+          </ion-item>
+
+          <ion-item menuClose (click)="logout()">
+            <ion-icon name="power" item-start></ion-icon> {{this.logouts}}
+          </ion-item>
+
+        </ion-card>
+
+
+        <ion-card class="sidepanel-list left-menu" *ngIf="istype==3" style="padding-bottom: 5rem;">
+          <ion-item menuClose (click)="signin()">
+            <ion-icon name="person" item-start ></ion-icon> {{this.Sign_In}}
+          </ion-item>
+          <ion-item menuClose (click)="signup()">
+            <ion-icon name="person" item-start></ion-icon> {{this.signups}}
+          </ion-item> 
+          <ion-item menuClose (click)="changecurrency()">
+            <ion-icon name="card" item-start></ion-icon> {{this.Change_Currency}}
+          </ion-item>
+          <ion-item menuClose (click)="changelanguage()">
+              <ion-icon name="switch" item-start></ion-icon> Change Language
+            </ion-item>
+        </ion-card>
+
+
+      </ion-content>
+
+  
+    </ion-menu>
+  
+    
+  
+    <!-- main navigation -->
+    <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+  
+  </ion-split-pane>
+  <ion-footer *ngIf="!footerIsHidden" class="footer-tab-custom hide-on-keyboard-open">
+    <ion-toolbar class="p-0">
+      <ion-grid class="p-0">
+        <ion-row class="row-bottom">
+          <ion-col text-center>
+            <a (click)="home()">
+              <span class="footer-icon"><img src="assets/img/home.png" alt="image"></span>
+              <p class="arabic">{{this.homes}}</p>
+            </a>
+          </ion-col>
+          <ion-col text-center>
+            <a (click)="allauctions()">
+              <span class="footer-icon"><img src="assets/img/icon-auction.png" alt="image"></span>
+              <p>{{this.auction}}</p>
+            </a>
+          </ion-col>
+  
+          
+          <ion-col text-center>
+            <a (click)="allwatches()">
+              <span class="footer-icon"><img src="assets/img/watch.png" alt="image"></span>
+              <p>{{this.watches}}</p>
+            </a>
+          </ion-col>
+
+          <ion-col text-center>
+            <a (click)="allshops()">
+              <span class="footer-icon"><img src="assets/img/shop.png" alt="image"></span>
+              <p>{{this.shops}}</p>
+            </a>
+          </ion-col>
+
+
+          <ion-col text-center *ngIf="istype!=3">
+            <a (click)="notifications()">
+              <span class="footer-icon">
+                <small class="f-notofy">{{count}}</small>
+                <img src="assets/img/icon-notification.png" alt="image">
+              </span>
+              <p>{{this.notificationsss}}</p>
+            </a>
+          </ion-col>
+          
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

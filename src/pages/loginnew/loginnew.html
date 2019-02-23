@@ -1,0 +1,85 @@
+<!-- <ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Login</ion-title>
+	</ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <div class="logo">
+    <img src="assets/img/appicon.png" alt="Ionic logo">
+    <h3>LogIn</h3>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="loginNow(form.value)" #loginForm="ngForm">
+    <ion-list>
+      <ion-item class="input-field">
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="text" value="" formControlName="email" placeholder="write your email" required></ion-input>
+        <div class="text-danger" *ngIf="(form.controls['email'].hasError('email', 'email')||!form.controls['email'].valid) && form.controls['email'].touched">
+          Please enter the correct email, this email not valid.
+        </div>
+      </ion-item>
+
+      <ion-item class="input-field">
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="write your password" required>
+
+        </ion-input>
+        <div class="text-danger" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">Password Required</div>
+      </ion-item>
+
+      <ion-grid class="pl-0 pr-0 pb-0">
+        <ion-row class="remember-panel">
+          <ion-col col-6 class="pl-0">
+            <ion-item class="pl-0">
+              <ion-label>Remember me</ion-label>
+              <ion-checkbox color="dark" checked="true"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6 class="pr-0">
+            <ion-item>
+            <ion-label class="pr-0" text-right (click)="forgetpass()">Forgot Password?</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div>
+        <button ion-button round class="grey-btn" [disabled]="!form.valid" type="submit" block>Sign In</button>
+      </div>
+      
+</ion-list>
+</form>
+
+<p class="bottom-text" (click)="guestlogin()">Enter As Guest</p>
+
+<ion-list>
+      <ion-grid class="p-0 or">
+        <ion-row class="line-row">
+          <ion-col col-5 class="line pl-0"></ion-col>
+          <ion-col col-2 class="pt-0" text-center style="color:#fff"> OR </ion-col>
+          <ion-col col-5 class="line pr-0"></ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div padding class="text-center">
+        <button ion-button class="fb-btn" (click)="facebookSignIn()"><img src="assets/img/fb-icon.png" alt="Facebook logo"></button>
+        <button ion-button class="g-plus-btn" (click)="googleplus()"><img src="assets/img/g-plus-icon.png" alt="G+ logo"></button>
+      </div>
+      <p class="bottom-text">Don’t have account?<span (click)="onSignup()"> Sign Up </span></p>
+
+</ion-list>
+
+    <!-- <ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
+			</ion-col>
+			<ion-col>
+				<button ion-button (click)="onSignup()" color="light" block>Signup</button>
+			</ion-col>
+		</ion-row> -->
+ 
+</ion-content>

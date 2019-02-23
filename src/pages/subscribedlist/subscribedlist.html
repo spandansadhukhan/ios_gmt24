@@ -1,0 +1,101 @@
+<!--
+  Generated template for the SubscribedlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Subscribed List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="selectedlanguage == 1">
+    <ion-list style="padding-bottom: 30px;">
+        
+   
+       <ion-item class="request-item subs-item" *ngFor="let p of packagelists">
+          <div class="offer" *ngIf="p.subscribed_id==p.active && p.expirydate >= p.currentdate">Active</div>
+         <h2>{{p.name}}</h2>
+         <p class="price">
+            <span>{{p.prefferd_currency}}</span> {{p.price}}</p>
+         <p class="name" *ngIf="p.subscribed_id==p.active && p.expirydate >= p.currentdate">
+           <span>Slots Remain:</span> {{p.slot_remain}} of {{p.slots}}</p>
+
+           <p class="name">
+            <span>Slots:</span>{{p.slots}}</p>
+
+
+           <p class="name">
+           <span>Subscription Date:</span> {{p.subscription_date}}</p>
+
+           <p class="name">
+              <span>Expiry Date:</span> {{p.expiry_date}}</p>
+         
+         
+         <button ion-button round class="dark-grey-btn" (click)="purchase(p.id)">Renew</button>
+       </ion-item>
+   
+       <ion-item *ngIf="packagelists== ''"> 
+               
+           <h2>Sorry! No subscriptions found</h2>
+           
+         </ion-item>
+       <!-- <ion-item class="request-item">
+         <ion-thumbnail item-start>
+           <img src="assets/img/watch-4.png">
+         </ion-thumbnail>
+         <h2>Rolex Cosmograph Daytona</h2>
+         <p class="name">
+           <span>Seller:</span> Unimax Bros.</p>
+         <p class="info">Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>
+         <p class="price">
+           <span>$</span> 27.25</p>
+         <button ion-button round class="blue-btn ml-0">Accept</button>
+         <button ion-button round class="brown-btn">Reject</button>
+         <button ion-button round class="dark-grey-btn">View</button>
+       </ion-item> -->
+   
+      
+       
+     </ion-list>
+   </ion-content>
+
+   <ion-content padding *ngIf="selectedlanguage == 2" class="rtl-arabic">
+    <ion-list style="padding-bottom: 30px;">
+        
+   
+       <ion-item class="request-item subs-item" *ngFor="let p of packagelists">
+          <div class="offer" *ngIf="p.subscribed_id==p.active && p.expirydate >= p.currentdate">Active</div>
+         <h2>{{p.name}}</h2>
+         <p class="price">
+            <span>{{p.prefferd_currency}}</span> {{p.price}}</p>
+         <p class="name" *ngIf="p.subscribed_id==p.active && p.expirydate >= p.currentdate">
+           <span>Slots Remain:</span> {{p.slot_remain}} of {{p.slots}}</p>
+
+           <p class="name">
+            <span>Slots:</span>{{p.slots}}</p>
+
+
+           <p class="name">
+           <span>Subscription Date:</span> {{p.subscription_date}}</p>
+
+           <p class="name">
+              <span>Expiry Date:</span> {{p.expiry_date}}</p>
+         
+         
+         <button ion-button round class="dark-grey-btn" (click)="purchase(p.id)">Renew</button>
+       </ion-item>
+   
+       <ion-item *ngIf="packagelists== ''"> 
+               
+           <h2>Sorry! No subscriptions found</h2>
+           
+         </ion-item>
+       
+       
+     </ion-list>
+   </ion-content>

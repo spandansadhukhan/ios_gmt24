@@ -1,0 +1,9 @@
+page-advertise {
+    .advertise-holder{background: url('../assets/img/advertise-bg.jpg') no-repeat top center; background-size: cover}
+    .skip{padding-right:0}
+    .skip a{color:#777; text-decoration: none}
+    h1{color:#fff; font-weight: 300; margin-top:30px !important; font-size: 4.2rem; font-family: 'Oswald', sans-serif;}
+    h1 span{color:#777; font-weight: 600; display: block; font-family: 'Oswald', sans-serif;}
+    p{color:#fff; font-family: 'Oswald', sans-serif; font-weight: 300; padding: 0 20px}
+    .logo{position: absolute; bottom:50px; left: 50%; transform: translateX(-50%); width:50%}
+}

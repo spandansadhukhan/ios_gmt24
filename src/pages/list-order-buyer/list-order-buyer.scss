@@ -1,0 +1,44 @@
+page-list-order-buyer {
+        .main-box{
+                width:100%;
+                box-shadow: 0 0 1px 1px rgba(204,204,204,.2);
+                padding:10px;
+                font-weight: bold;
+                background: rgba(41, 40, 40, 0.933);
+                color: white;
+                font-size: 10px;
+            }
+            
+            .line{
+                border-bottom: #eeeeee 1px solid;
+            }
+        
+            .line2{
+                width: 100%;
+                background: #d4d1d1;
+                border-width: .5px;
+                
+            }
+            
+            .btn-list {
+                background-color: #4c4a4a;;
+                padding: 4px 8px;
+                border-radius: 5px;
+                color: #fff;
+                text-align: center;
+                max-width: 100px;
+                width: 100%;
+                height: 30px;
+            
+                line-height: 30px;
+            }
+    
+            .rtl-arabic{
+                .item{
+                    text-align: right;
+                }
+                .main-box{
+                    text-align: right;
+                }
+            }
+}

@@ -1,0 +1,274 @@
+page-addproduct {
+    .profile-top{padding:15px 10px;margin-bottom: 0; background: url('../assets/img/left-panel-bg.jpg') no-repeat bottom center; background-size: cover; }
+    .profile-top .item{border: 0!important;  background-color: transparent;}
+    .profile-top .item .label {margin: 0}
+    .profile-top .item .profile-pic{position: relative; width:84px; margin: 5px auto}
+    .profile-top .item .profile-pic img{width:84px; height:84px; border-radius: 100%; border: 2px solid #aaaaaa}
+    .profile-top .edit{color: #fff; background: #797979; width:24px; height:24px; line-height: 24px; font-size:12px; border-radius: 100%; text-align: center; display: inline-block; position: absolute; right:-6px; bottom:12px}
+    .profile-top h4{color: #fff; font-size: 1.6rem; margin-bottom: 0}
+    .profile-top p{color: #999; font-size: 1.3rem; }
+
+        
+    .content { background: #818181 !important;  }
+    .profile-info{box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2); padding-bottom: 15px; background: #fff; margin-bottom: 0}
+    .profile-info .item{border: 0 !important}
+
+    .profile-info ion-input{ border: 1px solid #1b1b1b; background-color: #333333; border-radius: 25px}
+    .profile-info ion-select{ border: 1px solid #1b1b1b; background-color: #333333; border-radius: 25px}
+    .profile-info .item{padding-right: 5px}
+    .text-input, .select-text{ padding: 0 12px; font-size: 1.4rem; color: #fff;}
+    .select-icon .select-icon-inner{left:0 !important}
+
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {border-bottom-color: none; -webkit-box-shadow: none; box-shadow: none;}
+
+    .item-input ion-textarea{ border: 1px solid #1b1b1b; background-color: #333333; color:#fff; border-radius: 25px;}
+
+    .label{ color: #222222 !important;  font-size: 1.4rem !important;}
+    .checkbox{ margin-right: 5px !important;}
+    .checkbox .checkbox-checked{ background-color: #17a2b8; border-color: #17a2b8; }
+    .grid .row .col .item .item-inner{ padding-right: 0!important; }
+    .grid .row .col .item .item-inner .input-wrapper .label{ text-overflow: normal; white-space: normal; word-wrap: break-all; font-size: 1.2rem !important; margin-right: 0 !important;}
+    .sign-in-btn{ background: #c94838; border-radius: 2px; font-family: 'Poppins', sans-serif; text-transform: inherit; font-weight: 400; background: -moz-linear-gradient(top, #c94838 0%, #c94838 50%, #b84031 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #c94838 0%,#b84031 50%,#b84031 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #c94838 0%,#b84031 50%,#b84031 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */ }
+    
+    .rdo-btn{ width: auto; }
+    
+    .profile-info ion-datetime{ border: 1px solid #e0e0e0; background-color: #f5f5f5;  border-radius: 25px;}
+
+
+  /*  .calendar-header-col {
+        font-size: 1rem;
+        color: #666;
+      }
+      .calendar-row {
+        &:last-child {
+          border-bottom: 1px solid #eee;
+        }
+        .calendar-col {
+          display: flex;
+          justify-content: center;
+          padding: 0.8rem;
+          font-size: 1.2rem;
+          border-left: 1px solid #eee;
+          border-top: 1px solid #eee;
+          &:last-child {
+            border-right: 1px solid #eee;
+          }
+        }
+        .not-this-month {
+          color: #fff;
+          background: linear-gradient(#e5e5e5, #dfdfdf);
+        }
+        .today {
+          color: #fff;
+          box-shadow: inset 0 0 10px #aaa;
+          background: radial-gradient(#c5c5c5, #c8c8c8, #ccc);
+        }
+        .select {
+          box-shadow: none;
+          color: #fff;
+          background: radial-gradient(#5c7eda, #5e89ec, #5e89ec);
+        }
+      }
+
+      [col-1] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 8.33333%;
+        -ms-flex: 0 0 8.33333%;
+        flex: 0 0 14.285714285714286%;
+        width: 14.285714285714286%;
+        max-width: 14.285714285714286%;
+      }
+      .col {
+        text-align: center;
+        padding: 5px;
+        color: #999999;
+      }
+      .last-month, .next-month {
+        color: #999999;
+        font-size: 90%;
+      }
+      .currentDate, .otherDate {
+        padding: 5px;
+        color: #999999;
+      }
+      .currentDate {
+        font-weight: bold;
+        background-color: red;
+        color: white;
+        border-radius: 30px;
+      }
+
+      .currentDateNew {
+        font-weight: bold;
+        background-color: rgb(26, 11, 83);
+        color: white;
+        border-radius: 30px;
+      }
+      .calendar-header {
+        background-color: #1a732d;
+        color: #FFFFFF;
+      }
+      .event-bullet {
+        margin: 2px auto;
+        height: 5px;
+        width: 5px;
+        background-color: green;
+        border-radius: 30px;
+      }
+      .selected-date {
+        width: 20px;
+        height: 2px;
+        background-color: blue;
+      }
+      .unselected-date {
+        border: none;
+      }
+      .calendar-body {
+        .grid {
+          padding: 0;
+        }
+        .col:last-child {
+          border-right: none;
+        }
+        .calendar-weekday, .calendar-date {
+          text-align: center;
+          margin: 0;
+        }
+        .calendar-weekday {
+          font-weight: bold;
+          border-bottom: solid 1px #1a732d;
+          background-color: #26ab56;
+        }
+        .calendar-date {
+          border-top: solid 1px #1a732d;
+          border-bottom: solid 1px #1a732d;
+        }
+      }*/
+
+
+  .select-custom{
+    .label{
+      margin: 2px 0 13px;
+    }
+  }
+    .country-select{
+      border: 1px solid #1b1b1b;
+      background-color: #333333;
+      border-radius: 25px;
+      height: 40px !important;
+      text-align: left;
+      color: #fff;
+      position: relative;
+      padding-right: 32px !important;
+      box-shadow: none;
+      &:after{
+        content: "";
+        top: 50%;
+        margin-top: -3px;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 5px solid;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        color: #999;
+        right: 13px;
+      }
+      .button-inner{
+        justify-content: flex-start;
+        padding: 0 15px;
+        font-size: 14px;
+      }
+      img{
+        margin-right: 10px;
+        height: 20px;
+      }
+    }
+
+    .custom-dropdown{
+      background: rgba(0, 0, 0, 0.2);
+      width: 100%;
+      height: 100% !important;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      overflow-y: hidden;
+      .list{
+        width: 80%;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 15px;
+        ion-list-header{
+          padding-left: 0;
+          margin: 0;
+          .label{
+            font-size: 16px !important;
+            font-weight: 600;
+            margin: 0;
+          }
+        }
+        .item-radio {
+          padding-left: 0;
+          .label{
+            img{
+              height: 12px;
+              margin-right: 5px;
+            }
+          }
+        }
+        
+      }
+      .list-area-radio{
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .button{
+        box-shadow: none;
+      }
+    }
+    .rtl-arabic{
+      .profile-info{
+        .item {
+          text-align: right;
+        }
+      }
+      .text-input,.select-text{
+        text-align: right;
+      }
+      .country-select {
+        .button-inner{
+          justify-content: flex-end;
+        }
+      }
+    }
+    .line-s{
+      text-decoration: line-through;
+    }
+
+    /*new description & price start*/
+  .select-custom{
+    position: relative;
+    top: -13px;
+  } 
+  .select-custom2 {
+    position: relative;
+    top: -28px;
+  }  /*new description & price end*/
+  
+}
+
+

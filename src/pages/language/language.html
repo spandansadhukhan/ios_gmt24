@@ -1,0 +1,32 @@
+<!--
+  Generated template for the LanguagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+  <div class="logo">
+    <img src="assets/img/appicon.png" alt="Ionic logo">
+    <h3>Language</h3>
+  </div>
+  <form>
+    <ion-list class="mb-0">
+      <ion-item class="input-field">
+        <ion-label stacked color="primary">Select Default Language</ion-label>
+        <ion-select (ionChange)="languagechange($event)">
+          <ion-option value="" selected>Select Your Language</ion-option>
+          <ion-option value="1">English</ion-option>
+          <ion-option value="2">Arabic</ion-option>
+          
+        </ion-select>
+      </ion-item>
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col col-12 class="p-0 m-t-10">
+            <button ion-button round block class="grey-btn" (click)="changelanguage()" type="submit">Go</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </form>
+</ion-content>

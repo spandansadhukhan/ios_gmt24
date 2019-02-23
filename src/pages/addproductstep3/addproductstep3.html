@@ -1,0 +1,212 @@
+<!--
+  Generated template for the AddproductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{this.add_product}}/{{this.auction}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="selectedlanguage == 1">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+        
+        <ion-item>
+            <ion-label stacked color="primary">{{this.size}}*</ion-label>
+            <ion-input round type="number" placeholder="Type size." min="0" name="size" formControlName="size" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['size'].valid && pForm.controls['size'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <!-- <ion-item>
+            <ion-label stacked color="primary">{{this.location}}(optional)</ion-label>
+            <ion-input round type="text" placeholder="{{this.location}}" name="location" formControlName="location"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Work_Hours}}({{this.optional}})</ion-label>
+            <ion-input round type="text" placeholder="{{this.Work_Hours}}" name="work_hours" formControlName="work_hours"></ion-input>
+        </ion-item>
+
+        <div class="map-list">
+        <ion-item>
+          <input type="text" class="search" placeholder="Enter Location" id="pac-input" formControlName="location" name="location" (keyup)="updateSearchResults()">
+          <ion-list [hidden]="autocompleteItems.length == 0">
+              <ion-item *ngFor="let item of autocompleteItems" tappable (click)="searchaddress(item)">
+                  {{ item.description }}
+              </ion-item>
+          </ion-list>
+          <div id="map" class="map" style="height:400px;"> 
+          </div>
+        </ion-item>
+        </div>
+        
+        <ion-item>
+            <p class="upload-text">{{address}}</p>
+        </ion-item>
+
+
+
+
+
+
+        <!-- <ion-item>
+          <p class="upload-text">Upload Image</p>
+          <button ion-button round class="upload-image" color="light" (click)="presentActionSheet()">Upload Image</button>
+        </ion-item> -->
+        <!-- <ion-item *ngIf="pathForImage(lastImage)!= ''">
+          <h4>Image Preview</h4>
+          <img src="{{pathForImage(lastImage)}}"  alt="Ionic File" width="300" />
+        </ion-item> -->
+
+        <!-- <ion-col col-12>
+		
+            <h2 class="text-center m-b-20 m-t-15">Add up to 8 pictures</h2>
+          </ion-col>
+          <ion-col col-12>
+            <div class="dashed-area">
+              <a href="javascript:void()" (click)="presentActionSheet()" class="drag">
+                <img src="assets/imgs/camera.png" alt="" />
+                <p> click here to upload</p>
+              </a>
+            </div>
+          </ion-col> -->
+          <ion-item>
+            <p class="upload-text">{{this.Product_Image}}</p>
+            <button ion-button block class="upload-image" color="light" (click)="presentActionSheet()">{{this.Upload_Image}}</button>
+          </ion-item>
+        <!-- <ion-item *ngIf="pathForImage(lastImage)!= ''">
+          <h4>Image Preview</h4>
+          <img src="{{pathForImage(lastImage)}}"  alt="Ionic File" width="300" />
+        </ion-item> -->
+
+
+
+
+        <ul class="upload-list" *ngIf="productimages" style="list-style:none;">
+        
+        <li *ngFor="let item of productimages ;index as i ">
+        <img src="{{item}}" alt="" />
+        <a href="javascript:void()" (click)="remove_image(i)"><ion-icon name="close-circle"></ion-icon></a>
+        </li>
+        
+        </ul>
+        
+
+
+
+      <div padding class="no-p-t p-b-5">
+          
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.save}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+</ion-content>
+
+
+<ion-content *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+        
+        <ion-item>
+            <ion-label stacked color="primary">{{this.size}}*</ion-label>
+            <ion-input round type="number" placeholder="Type size." min="0" name="size" formControlName="size" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['size'].valid && pForm.controls['size'].touched" ion-text color="danger" padding-left>
+          {{this.this_field_is_required}} </p>
+        <!-- <ion-item>
+            <ion-label stacked color="primary">{{this.location}}(optional)</ion-label>
+            <ion-input round type="text" placeholder="{{this.location}}" name="location" formControlName="location"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Work_Hours}}({{this.optional}})</ion-label>
+            <ion-input round type="text" placeholder="{{this.Work_Hours}}" name="work_hours" formControlName="work_hours"></ion-input>
+        </ion-item>
+
+        <div class="map-list">
+        <ion-item>
+          <input type="text" class="search" placeholder="Enter Location" id="pac-input" formControlName="location" name="location" (keyup)="updateSearchResults()">
+          <ion-list [hidden]="autocompleteItems.length == 0">
+              <ion-item *ngFor="let item of autocompleteItems" tappable (click)="searchaddress(item)">
+                  {{ item.description }}
+              </ion-item>
+          </ion-list>
+          <div id="map" class="map" style="height:400px;"> 
+          </div>
+        </ion-item>
+      </div>
+        <ion-item>
+            <p class="upload-text">{{address}}</p>
+        </ion-item>
+
+
+
+
+
+
+        <!-- <ion-item>
+          <p class="upload-text">Upload Image</p>
+          <button ion-button round class="upload-image" color="light" (click)="presentActionSheet()">Upload Image</button>
+        </ion-item> -->
+        <!-- <ion-item *ngIf="pathForImage(lastImage)!= ''">
+          <h4>Image Preview</h4>
+          <img src="{{pathForImage(lastImage)}}"  alt="Ionic File" width="300" />
+        </ion-item> -->
+
+        <!-- <ion-col col-12>
+		
+            <h2 class="text-center m-b-20 m-t-15">Add up to 8 pictures</h2>
+          </ion-col>
+          <ion-col col-12>
+            <div class="dashed-area">
+              <a href="javascript:void()" (click)="presentActionSheet()" class="drag">
+                <img src="assets/imgs/camera.png" alt="" />
+                <p> click here to upload</p>
+              </a>
+            </div>
+          </ion-col> -->
+          <ion-item>
+            <p class="upload-text">{{this.Product_Image}}</p>
+            <button ion-button block class="upload-image" color="light" (click)="presentActionSheet()">{{this.Upload_Image}}</button>
+          </ion-item>
+        <!-- <ion-item *ngIf="pathForImage(lastImage)!= ''">
+          <h4>Image Preview</h4>
+          <img src="{{pathForImage(lastImage)}}"  alt="Ionic File" width="300" />
+        </ion-item> -->
+
+
+
+
+        <ul class="upload-list" *ngIf="productimages" style="list-style:none;">
+        
+        <li *ngFor="let item of productimages ;index as i ">
+        <img src="{{item}}" alt="" />
+        <a href="javascript:void()" (click)="remove_image(i)"><ion-icon name="close-circle"></ion-icon></a>
+        </li>
+        
+        </ul>
+        
+
+
+
+      <div padding class="no-p-t p-b-5">
+          
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.save}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+</ion-content>

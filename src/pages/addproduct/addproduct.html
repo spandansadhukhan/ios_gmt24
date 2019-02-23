@@ -1,0 +1,420 @@
+<!--
+  Generated template for the AddproductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <!-- Aruuuuu -->
+  <ion-navbar> 
+
+    <ion-title>{{this.add_product}}/{{this.auction}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<div class="custom-dropdown" *ngIf ="isShow">
+    <ion-list radio-group>
+    <ion-list-header>{{this.Currency}}</ion-list-header>
+                  
+    <ion-list class="list-area-radio">
+    <ion-item *ngFor="let c of currencylists">
+    <ion-label><img src="assets/img/{{c.image}}" alt="">{{c.code}}</ion-label>
+    <ion-radio value="{{c.code}}" (ionSelect)="selectcurrency(c.code,c.image)"></ion-radio>
+    </ion-item>
+                       
+    </ion-list>
+    <ion-row>
+        <!-- <ion-col>
+            <button block ion-button  round class="grey-btn">Ok</button>
+        </ion-col> -->
+        <ion-col>
+            <button block ion-button color="dark" round outline (click)='hide()'>{{this.Cancel}}</button>
+        </ion-col>
+    </ion-row>
+    </ion-list>
+    </div>
+
+<ion-content *ngIf="selectedlanguage == 1">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Upload_Type}}*</ion-label>
+            <ion-select name="type" (ionChange)="uploadtype($event)" formControlName="type">
+            <ion-option value="" selected>{{this.please_select}}</ion-option>
+            <ion-option value="1">{{this.product}}</ion-option>
+              <ion-option value="2">{{this.auction}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['type'].valid && pForm.controls['type'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.brands}}*</ion-label>
+            <ion-select name="brand" (ionChange)="subcategoryList($event)" formControlName="brand">
+              <ion-option value="{{b.id}}" *ngFor="let b of brandlists">{{b.name}}</ion-option>
+              <ion-option value="OTHER">{{this.other}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['brand'].valid && pForm.controls['brand'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+        <ion-item *ngIf="brandid!='OTHER'">
+            <ion-label stacked color="primary">{{this.category}}*</ion-label>
+            <ion-select name="cat_id" formControlName="cat_id">
+              <ion-option value="{{sc.id}}" *ngFor="let sc of subcategorylists">{{sc.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <!-- <p *ngIf="!pForm.controls['cat_id'].valid && pForm.controls['cat_id'].touched && brandid!='OTHER'" ion-text color="danger" padding-left>
+            Category is required </p> -->
+
+
+          <ion-item *ngIf="brandid=='OTHER'">
+              <ion-label stacked color="primary">{{this.other_brand_name}}*</ion-label>
+              <ion-input round type="text" placeholder="{{this.other_brand_name}}"  formControlName="otherbrand" ></ion-input>
+          </ion-item>  
+          
+          <ion-item *ngIf="brandid=='OTHER'">
+            <ion-label stacked color="primary">{{this.other_category_name}}*</ion-label>
+            <ion-input round type="text" placeholder="{{this.other_category_name}}" formControlName="othercategory" ></ion-input>
+        </ion-item> 
+       
+
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Bracelet_Type}}*</ion-label>
+            <ion-select name="breslet_type" formControlName="breslet_type" >
+              <ion-option *ngFor="let bl of braceletlists" value="{{bl.id}}">{{bl.type}}</ion-option>
+              
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['breslet_type'].valid && pForm.controls['breslet_type'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Model_Year}}*</ion-label>
+            <ion-select name="model_year" formControlName="model_year">
+              <ion-option value="{{y}}" *ngFor="let y of yearlists">{{y}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['model_year'].valid && pForm.controls['model_year'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+        <!-- <ion-item>
+            <ion-label stacked color="primary">Currency*</ion-label>
+            <ion-select name="currency" formControlName="currency">
+              <ion-option value="{{c.code}}" *ngFor="let c of currencylists">{{c.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['currency'].valid && pForm.controls['currency'].touched" ion-text color="danger" padding-left>
+            Currency is required </p> -->
+
+
+        <ion-item>
+        <ion-label stacked color="primary">{{this.Currency}}*</ion-label>
+        </ion-item>
+        <ion-item class="select-custom">
+        <button ion-button block class="country-select" (click)="show()"><img src="assets/img/{{curimg}}" alt="">{{curcode}}</button>
+        </ion-item>
+        
+        <!-- <p *ngIf="!curcode && iserrorShow" ion-text color="danger" padding-left>
+                Currency is required </p> -->
+        
+
+           
+        <!-- <ion-item *ngIf="uploadtypeid==2" >
+            <ion-label stacked color="primary" >Auction Date
+        <div class="calendar-header" style="background-color:gray">
+          <ion-row class="calendar-month">
+            <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+            <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+            <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+          </ion-row>
+        </div>
+        <div class="calendar-body">
+          <ion-grid>
+            <ion-row class="calendar-weekday" style="background-color:gray">
+              <ion-col>Su</ion-col>
+              <ion-col>Mo</ion-col>
+              <ion-col>Tu</ion-col>
+              <ion-col>We</ion-col>
+              <ion-col>Th</ion-col>
+              <ion-col>Fr</ion-col>
+              <ion-col>Sa</ion-col>
+            </ion-row>
+            <ion-row class="calendar-date" >
+              <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+              <ion-col col-1 *ngFor="let day of daysInThisMonth" >
+                  <ion-col col-1 *ngFor="let day1 of days" >
+              <span class="currentDate" *ngIf="day1 == day ; else otherDate" (click)="selectDate(day,currentMonth,currentYear)" style="background-color:gray">{{day}}</span>
+              <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+              </ion-col>
+            </ion-col>
+              <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div> </ion-label>
+      </ion-item> -->
+       <!-- <ion-item *ngIf="uploadtypeid==2">
+            <ion-label stacked color="primary">Auction Date</ion-label>
+            <ion-input round type="date"  name="preferred_date" formControlName="preferred_date" (click)="getauctiontime($event)" date-enabled-dates="2018-06-06"></ion-input>
+        </ion-item> -->
+
+
+
+
+      <ion-item *ngIf="uploadtypeid==2">
+          <ion-label stacked color="primary">{{this.auction_date}}*</ion-label>
+      </ion-item>
+      <ion-item *ngIf="uploadtypeid==2">
+      <ion-calendar formControlName="preferred_date" (onChange)="getauctiontime($event)"
+              [options]="optionsMulti"
+              [type]="type"
+              [format]="'YYYY-MM-DD'">
+      </ion-calendar>
+      </ion-item>
+
+       
+        
+        <ion-list radio-group formControlName="time_slot_id" name="time_slot_id" *ngIf="uploadtypeid==2">
+        <ion-list-header>{{this.auction_Timing}}*</ion-list-header>
+        <ion-item *ngFor="let t of timelists">
+            <ion-label *ngIf="t.status==1" class="line-s">{{t.start_time}} To {{t.end_time}}</ion-label>
+            <ion-label *ngIf="t.status==0">{{t.start_time}} To {{t.end_time}}</ion-label>
+            <ion-radio *ngIf="t.status==0" value="{{t.id}}"></ion-radio>
+        </ion-item>
+        </ion-list>
+
+        
+
+        <ion-item class="select-custom2">
+            <ion-label stacked color="primary">{{this.description}}</ion-label>
+            <ion-textarea round rows="5" maxLength="500" placeholder="{{this.description}}" formControlName="description"></ion-textarea>
+        </ion-item>
+        <!-- <p *ngIf="!pForm.controls['description'].valid && pForm.controls['description'].touched" ion-text color="danger" padding-left>
+            Description is required </p> -->
+        
+        <ion-item class="select-custom2">
+            <ion-label stacked color="primary">{{this.Price}}*</ion-label>
+            <ion-input round type="number" placeholder="0.00" name="phone" formControlName="price" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['price'].valid && pForm.controls['price'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+        
+           
+
+      <div padding class="no-p-t p-b-5 select-custom2">
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.next}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+  
+  
+</ion-content>
+<ion-content *ngIf="selectedlanguage == 2" class="rtl-arabic">
+  
+
+  <form padding  novalidate [formGroup]="pForm">
+    <ion-list no-lines class="profile-info">
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Upload_Type}}*</ion-label>
+            <ion-select name="type" (ionChange)="uploadtype($event)" formControlName="type">
+            <ion-option value="" selected>{{this.please_select}}</ion-option>
+            <ion-option value="1">{{this.product}}</ion-option>
+              <ion-option value="2">{{this.auction}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['type'].valid && pForm.controls['type'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+        <ion-item>
+            <ion-label stacked color="primary">{{this.brands}}*</ion-label>
+            <ion-select name="brand" (ionChange)="subcategoryList($event)" formControlName="brand">
+              <ion-option value="{{b.id}}" *ngFor="let b of brandlists">{{b.name}}</ion-option>
+              <ion-option value="OTHER">{{this.other}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['brand'].valid && pForm.controls['brand'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+        <ion-item *ngIf="brandid!='OTHER'">
+            <ion-label stacked color="primary">{{this.category}}*</ion-label>
+            <ion-select name="cat_id" formControlName="cat_id">
+              <ion-option value="{{sc.id}}" *ngFor="let sc of subcategorylists">{{sc.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <!-- <p *ngIf="!pForm.controls['cat_id'].valid && pForm.controls['cat_id'].touched && brandid!='OTHER'" ion-text color="danger" padding-left>
+            Category is required </p> -->
+
+
+          <ion-item *ngIf="brandid=='OTHER'">
+              <ion-label stacked color="primary">{{this.other_brand_name}}*</ion-label>
+              <ion-input round type="text" placeholder="{{this.other_brand_name}}"  formControlName="otherbrand" ></ion-input>
+          </ion-item>  
+          
+          <ion-item *ngIf="brandid=='OTHER'">
+            <ion-label stacked color="primary">{{this.other_category_name}}*</ion-label>
+            <ion-input round type="text" placeholder="{{this.other_category_name}}" formControlName="othercategory" ></ion-input>
+        </ion-item> 
+       
+
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Bracelet_Type}}*</ion-label>
+            <ion-select name="breslet_type" formControlName="breslet_type" >
+              <ion-option *ngFor="let bl of braceletlists" value="{{bl.id}}">{{bl.type}}</ion-option>
+              
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['breslet_type'].valid && pForm.controls['breslet_type'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+
+        <ion-item>
+            <ion-label stacked color="primary">{{this.Model_Year}}*</ion-label>
+            <ion-select name="model_year" formControlName="model_year">
+              <ion-option value="{{y}}" *ngFor="let y of yearlists">{{y}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['model_year'].valid && pForm.controls['model_year'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+        <!-- <ion-item>
+            <ion-label stacked color="primary">Currency*</ion-label>
+            <ion-select name="currency" formControlName="currency">
+              <ion-option value="{{c.code}}" *ngFor="let c of currencylists">{{c.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p *ngIf="!pForm.controls['currency'].valid && pForm.controls['currency'].touched" ion-text color="danger" padding-left>
+            Currency is required </p> -->
+
+
+
+        <ion-item>
+        <ion-label stacked color="primary">{{this.Currency}}*</ion-label>
+        </ion-item>
+        <ion-item class="select-custom">
+        <button ion-button block class="country-select" (click)="show()"><img src="assets/img/{{curimg}}" alt="">{{curcode}}</button>
+        </ion-item>
+        <!-- <div class="custom-dropdown" *ngIf ="isShow">
+        <ion-list radio-group>
+        <ion-list-header>{{this.Currency}}</ion-list-header>
+                      
+        <ion-list class="list-area-radio">
+        <ion-item *ngFor="let c of currencylists">
+        <ion-label><img src="assets/img/{{c.image}}" alt="">{{c.code}}</ion-label>
+        <ion-radio value="{{c.code}}" (ionSelect)="selectcurrency(c.code,c.image)"></ion-radio>
+        </ion-item>
+                           
+        </ion-list>
+        <ion-row>
+           
+            <ion-col>
+                <button block ion-button color="dark" round outline (click)='hide()'>{{this.Cancel}}</button>
+            </ion-col>
+        </ion-row>
+        </ion-list>
+        </div> -->
+        
+        <!-- <p *ngIf="!curcode && iserrorShow" ion-text color="danger" padding-left>
+                Currency is required </p> -->
+        
+
+           
+        <!-- <ion-item *ngIf="uploadtypeid==2" >
+            <ion-label stacked color="primary" >Auction Date
+        <div class="calendar-header" style="background-color:gray">
+          <ion-row class="calendar-month">
+            <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+            <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+            <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+          </ion-row>
+        </div>
+        <div class="calendar-body">
+          <ion-grid>
+            <ion-row class="calendar-weekday" style="background-color:gray">
+              <ion-col>Su</ion-col>
+              <ion-col>Mo</ion-col>
+              <ion-col>Tu</ion-col>
+              <ion-col>We</ion-col>
+              <ion-col>Th</ion-col>
+              <ion-col>Fr</ion-col>
+              <ion-col>Sa</ion-col>
+            </ion-row>
+            <ion-row class="calendar-date" >
+              <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+              <ion-col col-1 *ngFor="let day of daysInThisMonth" >
+                  <ion-col col-1 *ngFor="let day1 of days" >
+              <span class="currentDate" *ngIf="day1 == day ; else otherDate" (click)="selectDate(day,currentMonth,currentYear)" style="background-color:gray">{{day}}</span>
+              <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+              </ion-col>
+            </ion-col>
+              <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div> </ion-label>
+      </ion-item> -->
+       <!-- <ion-item *ngIf="uploadtypeid==2">
+            <ion-label stacked color="primary">Auction Date</ion-label>
+            <ion-input round type="date"  name="preferred_date" formControlName="preferred_date" (click)="getauctiontime($event)" date-enabled-dates="2018-06-06"></ion-input>
+        </ion-item> -->
+
+
+
+
+      <ion-item *ngIf="uploadtypeid==2">
+          <ion-label stacked color="primary">{{this.auction_date}}*</ion-label>
+      </ion-item>
+      <ion-item *ngIf="uploadtypeid==2">
+      <ion-calendar formControlName="preferred_date" (onChange)="getauctiontime($event)"
+              [options]="optionsMulti"
+              [type]="type"
+              [format]="'YYYY-MM-DD'">
+      </ion-calendar>
+      </ion-item>
+
+       
+        
+        <ion-list radio-group formControlName="time_slot_id" name="time_slot_id" *ngIf="uploadtypeid==2">
+        <ion-list-header>{{this.auction_Timing}}*</ion-list-header>
+        <ion-item *ngFor="let t of timelists">
+            <ion-label>{{t.start_time}} To {{t.end_time}}</ion-label>
+            <ion-radio value="{{t.id}}"></ion-radio>
+        </ion-item>
+        </ion-list>
+
+        
+
+        <ion-item class="select-custom2">
+            <ion-label stacked color="primary">{{this.description}}</ion-label>
+            <ion-textarea round rows="5" maxLength="500" placeholder="{{this.description}}" formControlName="description"></ion-textarea>
+        </ion-item>
+        <!-- <p *ngIf="!pForm.controls['description'].valid && pForm.controls['description'].touched" ion-text color="danger" padding-left>
+            Description is required </p> -->
+        
+        <ion-item class="select-custom2">
+            <ion-label stacked color="primary">{{this.Price}}*</ion-label>
+            <ion-input round type="number" placeholder="0.00" name="phone" formControlName="price" required></ion-input>
+        </ion-item>
+        <p *ngIf="!pForm.controls['price'].valid && pForm.controls['price'].touched" ion-text color="danger" padding-left>
+            {{this.this_field_is_required}} </p>
+
+        
+           
+
+      <div padding class="no-p-t p-b-5 select-custom2">
+          <button ion-button round class="blue-btn ml-0" type="submit" (click)="onSubmit(pForm.value)" block>{{this.next}}</button>
+      </div>
+  
+  </ion-list>
+
+
+  </form>
+  
+  
+</ion-content>

@@ -1,0 +1,34 @@
+page-myproduct {
+    .content { background: #e5e5e5 !important;}
+    .scroll-content{padding: 10px !important}
+    .item.request-item {align-items: flex-start; border-radius: 2px; margin-bottom: 10px}
+    .item.request-item h2{font-size: 1.5rem; color:#222;}
+    .item.request-item .price{font-size: 1.5rem; color:#000}
+    .item.request-item .price span{color:#888; font-weight: 600}
+    .item.request-item .name{font-size: 1.2rem; color:#000}
+    .item.request-item .name span{color:#888;}
+    .item.request-item .info{color:#888; font-size: 1.1rem; text-overflow: clip; white-space: normal}
+    .item.request-item ion-thumbnail{min-width: 60px}
+    .item.request-item ion-thumbnail img{
+        height: 75px;
+        width: 80px;
+        object-fit: cover;
+    }
+    .item.request-item .button{height:32px; padding-left: 1.5em; padding-right: 1.4em}
+    .item.request-item .item-inner{border-bottom:0}
+    .top-tag{width: 47px; height: 47px; position: absolute; z-index: 100; left: 12px; top: 12px;}
+
+    .product-bt{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .rtl-arabic{
+        .item{
+            text-align: right;
+            flex-direction: row-reverse;
+        }
+        .product-bt{
+            justify-content: flex-end;
+        }
+    }
+}
