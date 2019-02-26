@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {  Http, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
-import 'rxjs/add/operator/map';
 //import { HttpClient } from '@angular/common/http';
 import { LoadingController } from 'ionic-angular';
 import { Config } from './../../config';
-
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';  // debug
+import 'rxjs/add/operator/catch';
 /*
   Generated class for the AuthServiceProvider provider.
 
@@ -21,6 +23,17 @@ export class AuthServiceProvider {
   ) {
     console.log('Hello AuthServiceProvider Provider');
   }
+  private _serverError(err: any) {
+    console.log('sever error:', err);  // debug
+    if (err instanceof Response) {
+      return Observable.throw(err.json().error || 'backend server error');
+      // if you're using lite-server, use the following line
+      // instead of the line above:
+      //return Observable.throw(err.text() || 'backend server error');
+    }
+    return Observable.throw(err || 'backend server error');
+  }
+
   public details ;
   postData(credentials, type) {
     let loading = this.loadingCtrl.create({
@@ -93,7 +106,7 @@ export class AuthServiceProvider {
       return res.json();
     });
   }
-  
+
   sellerlist(data:object):Observable<any>{
     //console.log(data);
     return this.http.post(this.apiUrl +'listshops',data).map((res:Response)=>{
@@ -124,11 +137,13 @@ export class AuthServiceProvider {
     });
   }
 
-  facebooklogin(data: object): Observable<any> {
-    //console.log(data);
-    return this.http.post(this.apiUrl +'fblogin', data).map((res: Response) => {
+  socialLogin(data: object, type : any): Observable<any> {
+    console.log(this.apiUrl + type , JSON.stringify(data));
+    return this.http.post(this.apiUrl + type, data).map((res: Response) => {
       return res.json();
-    });
+    })
+    .do(data => console.log('server data:', data))  // debug
+    .catch(this._serverError);
   }
 
   resendotp(data: object): Observable<any> {
@@ -166,7 +181,7 @@ export class AuthServiceProvider {
           return res.json();
         }
       });
-    
+
   }
 
   updateprofile(data: object): Observable<any> {
@@ -174,9 +189,9 @@ export class AuthServiceProvider {
       return res.json();
     });
   }
- 
+
   changepass(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'CheckoldPassword',
@@ -191,7 +206,7 @@ export class AuthServiceProvider {
   }
 
   productadd(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'addProductNew_app',
@@ -204,10 +219,10 @@ export class AuthServiceProvider {
         }
       });
   }
-  
+
 
   UserSubscriptionpayment(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'UserSubscriptionpayment',
@@ -223,7 +238,7 @@ export class AuthServiceProvider {
 
 
   auctionuploapayment(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'auctionuploapayment',
@@ -238,7 +253,7 @@ export class AuthServiceProvider {
   }
 
   auctionwinnerpayment(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'UserAuctionpayment',
@@ -253,7 +268,7 @@ export class AuthServiceProvider {
   }
 
   productuploapayment(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'userpaymentforupload',
@@ -268,7 +283,7 @@ export class AuthServiceProvider {
   }
 
   userpaymentfortop(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'userpaymentfortop',
@@ -283,7 +298,7 @@ export class AuthServiceProvider {
   }
 
   sendauctionadd(data: object): Observable<any> {
-    
+
     let requestchangeoptions = new RequestOptions({
       method: RequestMethod.Post,
       url: this.apiUrl + 'auctionapproval',
@@ -322,7 +337,7 @@ export class AuthServiceProvider {
         }, (err) => {
           console.log(err);
           reject(err);
-          loading.dismiss(); 
+          loading.dismiss();
         });
     });
 
@@ -341,7 +356,7 @@ export class AuthServiceProvider {
     });
   }
 
-  
+
   notifysettings(data:object):Observable<any>{
     //console.log(data);
     return this.http.post(this.apiUrl +'notifysettings',data).map((res:Response)=>{
@@ -355,5 +370,5 @@ export class AuthServiceProvider {
       return res.json();
     });
   }
-  
+
 }
