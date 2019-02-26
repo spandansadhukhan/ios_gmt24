@@ -21,20 +21,21 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Push } from '@ionic-native/push';
 import { Facebook } from '@ionic-native/facebook';
-//import { GooglePlus } from '@ionic-native/google-plus';
+import { GooglePlus } from '@ionic-native/google-plus';
+
 @NgModule({
   declarations: [
     MyApp,
     //HomePage
   ],
   imports: [
-   
+
     BrowserModule,HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     IonicImageViewerModule,
     CalendarModule
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,9 +50,10 @@ import { Facebook } from '@ionic-native/facebook';
     GoogleMaps,
     Geolocation,
     Facebook,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    
+
     Camera,
     FileTransfer,
     FilePath,
@@ -59,7 +61,7 @@ import { Facebook } from '@ionic-native/facebook';
     LaunchNavigator,
     Push,
     CallNumber
-    
+
   ]
 })
-export class AppModule {} 
+export class AppModule {}

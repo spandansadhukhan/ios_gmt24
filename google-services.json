@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "127816771134",
+    "firebase_url": "https://thegmt24-1828ths.firebaseio.com",
+    "project_id": "thegmt24-1828ths",
+    "storage_bucket": "thegmt24-1828ths.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127816771134:android:f9949fb09745a3fe",
+        "android_client_info": {
+          "package_name": "io.ionic.gmt24"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127816771134-r6ms648p7og9geqascsjpon0qntreslj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.gmt24",
+            "certificate_hash": "a3a7359f2ce6d9caafe57c4e352f4f506480da28"
+          }
+        },
+        {
+          "client_id": "127816771134-q36t9u8fjq47hmab1ocvih9duovu47u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsl-aPCS_8GtRrYDbaJ4Cvud3_V6Fjms8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127816771134-q36t9u8fjq47hmab1ocvih9duovu47u8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "127816771134-686o1qckmnne1hn14r0dia08s5jq3d3t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.thegmt24.gmt24",
+                "app_store_id": "1329672908"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

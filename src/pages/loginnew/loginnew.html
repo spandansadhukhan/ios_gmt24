@@ -50,7 +50,7 @@
       <div>
         <button ion-button round class="grey-btn" [disabled]="!form.valid" type="submit" block>Sign In</button>
       </div>
-      
+
 </ion-list>
 </form>
 
@@ -67,7 +67,7 @@
 
       <div padding class="text-center">
         <button ion-button class="fb-btn" (click)="facebookSignIn()"><img src="assets/img/fb-icon.png" alt="Facebook logo"></button>
-        <button ion-button class="g-plus-btn" (click)="googleplus()"><img src="assets/img/g-plus-icon.png" alt="G+ logo"></button>
+        <button ion-button class="g-plus-btn" (click)="doGoogleLogin()"><img src="assets/img/g-plus-icon.png" alt="G+ logo"></button>
       </div>
       <p class="bottom-text">Don’t have account?<span (click)="onSignup()"> Sign Up </span></p>
 
@@ -81,5 +81,5 @@
 				<button ion-button (click)="onSignup()" color="light" block>Signup</button>
 			</ion-col>
 		</ion-row> -->
- 
+
 </ion-content>
